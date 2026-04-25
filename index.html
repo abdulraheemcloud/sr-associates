@@ -1,213 +1,532 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SR Associates | Best GST Practitioner in Coimbatore</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-text {
-            background: linear-gradient(135deg, #0f2b3d 0%, #2c7da0 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, #0f2b3d, #1b4d6e);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 1rem;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 25px -5px rgba(27,77,110,0.4); }
-        .btn-whatsapp {
-            background: white;
-            border: 2px solid #25D366;
-            color: #075E54;
-            padding: 1rem 2rem;
-            border-radius: 1rem;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-        }
-        .btn-whatsapp:hover { background: #25D366; color: white; }
-        .service-card { transition: all 0.3s ease; background: white; border-radius: 1rem; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.15); }
-        .counter { font-size: 2.5rem; font-weight: 900; color: #0f2b3d; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Premium Hero Section | Tax Consultants Coimbatore</title>
+  <!-- Google Fonts for elegant typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (Free Icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      background: #0A1128; /* fallback deep navy */
+    }
+
+    /* Fullscreen Hero Container */
+    .hero-premium {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      background: radial-gradient(circle at 20% 30%, #0B132B, #050A1A);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    /* Subtle animated grid lines (moving) */
+    .grid-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(255, 215, 0, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 215, 0, 0.04) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: 0;
+      animation: slowGridMove 30s linear infinite;
+    }
+
+    @keyframes slowGridMove {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(50px, 50px);
+      }
+    }
+
+    /* Particle dots canvas */
+    #particle-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Main content container */
+    .content-center {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 1200px;
+      width: 90%;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      backdrop-filter: blur(2px);
+    }
+
+    /* Orbiting rings wrapper */
+    .orbit-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+      min-height: 280px;
+    }
+
+    /* Rotating thin circular ring */
+    .rotating-ring {
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 215, 0, 0.5);
+      border-top: 1.5px solid rgba(0, 255, 255, 0.8);
+      border-right: 1.5px solid rgba(255, 215, 0, 0.3);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      animation: spinRing 20s linear infinite;
+      pointer-events: none;
+    }
+
+    .rotating-ring::after {
+      content: '';
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 16px;
+      height: 16px;
+      background: #00ffff;
+      border-radius: 50%;
+      filter: blur(3px);
+      opacity: 0.8;
+      box-shadow: 0 0 15px cyan;
+    }
+
+    @keyframes spinRing {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Glowing icons floating / orbiting */
+    .icon-orbit {
+      position: relative;
+      width: 340px;
+      height: 340px;
+      margin: 0 auto;
+    }
+
+    .orbit-icon {
+      position: absolute;
+      width: 54px;
+      height: 54px;
+      background: rgba(15, 25, 45, 0.55);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: #FFD966;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3), 0 0 12px rgba(255, 215, 0, 0.4);
+      border: 1px solid rgba(255, 215, 0, 0.4);
+      transition: all 0.25s;
+      animation: floatIcon 3s infinite ease-in-out;
+    }
+
+    /* individual floating delays & orbit radius */
+    .orbit-icon:nth-child(1) { top: 5%; left: 35%; animation-delay: 0s; }
+    .orbit-icon:nth-child(2) { top: 70%; left: 10%; animation-delay: 0.4s; }
+    .orbit-icon:nth-child(3) { top: 20%; right: 8%; animation-delay: 0.7s; }
+    .orbit-icon:nth-child(4) { bottom: 5%; left: 45%; animation-delay: 1s; }
+    .orbit-icon:nth-child(5) { top: 45%; left: -5%; animation-delay: 0.2s; }
+    .orbit-icon:nth-child(6) { bottom: 25%; right: -2%; animation-delay: 0.9s; }
+
+    @keyframes floatIcon {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); filter: drop-shadow(0 8px 12px rgba(0,255,210,0.2)); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Glassmorphism title card */
+    .title-gold {
+      background: rgba(10, 20, 35, 0.55);
+      backdrop-filter: blur(12px);
+      border-radius: 64px;
+      padding: 1.2rem 2.8rem;
+      display: inline-block;
+      margin-bottom: 1.2rem;
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.4), 0 0 15px rgba(0,255,255,0.1);
+    }
+
+    .main-title {
+      font-size: clamp(2.2rem, 6vw, 4.8rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #FFFFFF, #FFE5A3, #C0E0FF);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .sub-text {
+      font-size: clamp(1rem, 3.5vw, 1.3rem);
+      font-weight: 500;
+      color: #CCE6FF;
+      letter-spacing: 0.3px;
+      word-spacing: 4px;
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem 1.8rem;
+    }
+
+    .sub-text span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 160, 210, 0.15);
+      padding: 0.2rem 0.9rem;
+      border-radius: 40px;
+      backdrop-filter: blur(4px);
+      font-weight: 500;
+    }
+
+    .sub-text i {
+      font-size: 0.9rem;
+      color: #FFD966;
+    }
+
+    /* Gradient Glow Pulse backdrop behind title */
+    .glow-pulse {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(0, 255, 200, 0.2), rgba(255, 200, 0, 0) 70%);
+      border-radius: 50%;
+      filter: blur(40px);
+      z-index: -1;
+      animation: pulseGlow 4s infinite alternate;
+      pointer-events: none;
+      left: 50%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+    }
+
+    @keyframes pulseGlow {
+      0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.9); }
+      100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.2); }
+    }
+
+    /* CTA Buttons Container */
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(105deg, #FFD966 0%, #E6B422 100%);
+      border: none;
+      padding: 1rem 2.4rem;
+      border-radius: 56px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #0A1128;
+      cursor: pointer;
+      box-shadow: 0 12px 25px -10px rgba(0,0,0,0.4), 0 0 15px rgba(255, 217, 0, 0.4);
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: inherit;
+      letter-spacing: 0.3px;
+      backdrop-filter: blur(4px);
+    }
+
+    .btn-primary i {
+      font-size: 1.2rem;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 30px -8px rgba(0,0,0,0.5), 0 0 25px #FFD966;
+      background: linear-gradient(105deg, #FFE084, #F0B81E);
+    }
+
+    .btn-outline-gold {
+      background: rgba(10, 25, 55, 0.65);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 217, 0, 0.75);
+      padding: 1rem 2.4rem;
+      border-radius: 56px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #FFE6B3;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.25s ease;
+      font-family: inherit;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    }
+
+    .btn-outline-gold i {
+      font-size: 1.2rem;
+      color: #25D366;
+    }
+
+    .btn-outline-gold:hover {
+      background: rgba(255, 215, 0, 0.2);
+      border-color: #FFD966;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 25px -8px rgba(0,0,0,0.4);
+    }
+
+    /* Small fade-in stagger animation for content */
+    .fade-stagger {
+      animation: fadeSlideUp 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+      opacity: 0;
+    }
+
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.3s; }
+    .stagger-3 { animation-delay: 0.6s; }
+    .stagger-4 { animation-delay: 0.9s; }
+
+    @keyframes fadeSlideUp {
+      0% { opacity: 0; transform: translateY(18px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .orbit-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.4rem;
+        border-radius: 18px;
+      }
+      .rotating-ring {
+        width: 220px;
+        height: 220px;
+      }
+      .icon-orbit {
+        width: 260px;
+        height: 260px;
+      }
+      .orbit-icon:nth-child(1) { top: 0%; left: 40%; }
+      .orbit-icon:nth-child(2) { top: 75%; left: 0%; }
+      .orbit-icon:nth-child(3) { top: 15%; right: -2%; }
+      .orbit-icon:nth-child(4) { bottom: 0%; left: 55%; }
+      .orbit-icon:nth-child(5) { top: 55%; left: -10%; }
+      .orbit-icon:nth-child(6) { bottom: 30%; right: -8%; }
+      .title-gold {
+        padding: 0.8rem 1.4rem;
+      }
+      .btn-primary, .btn-outline-gold {
+        padding: 0.7rem 1.6rem;
+        font-size: 0.85rem;
+      }
+      .sub-text span {
+        padding: 0.2rem 0.8rem;
+        font-size: 0.75rem;
+      }
+    }
+
+    /* Additional floating shimmer for corporate elegance */
+    .luxury-glow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at 50% 40%, rgba(0, 180, 200, 0.05), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ensures no overflow issues */
+    canvas {
+      display: block;
+    }
+  </style>
 </head>
 <body>
+<div class="hero-premium">
+  <!-- moving grid lines -->
+  <div class="grid-bg"></div>
+  <!-- Subtle luxury radial glow -->
+  <div class="luxury-glow"></div>
 
-<nav class="fixed top-0 w-full z-50 bg-white shadow-md">
-    <div class="container mx-auto px-4 py-4">
-        <div class="flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-gradient-to-br from-cyan-700 to-blue-800 rounded-xl flex items-center justify-center"><span class="text-white font-bold text-xl">SR</span></div>
-                <div><span class="font-bold text-xl text-gray-800">SR <span class="text-cyan-700">Associates</span></span><p class="text-xs text-gray-500">GST & Tax Consultants</p></div>
-            </a>
-            <div class="hidden md:flex items-center gap-8">
-                <a href="index.html" class="text-gray-600 hover:text-cyan-700 font-medium">Home</a>
-                <a href="about.html" class="text-gray-600 hover:text-cyan-700 font-medium">About</a>
-                <a href="services.html" class="text-gray-600 hover:text-cyan-700 font-medium">Services</a>
-                <a href="contact.html" class="text-gray-600 hover:text-cyan-700 font-medium">Contact</a>
-            </div>
-            <a href="contact.html" class="hidden md:block bg-gradient-to-r from-cyan-700 to-blue-800 text-white px-6 py-2 rounded-full font-semibold">Get Quote</a>
-            <button id="menuBtn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
-        </div>
-        <div id="mobileMenu" class="md:hidden hidden mt-4 space-y-3">
-            <a href="index.html" class="block py-2">Home</a>
-            <a href="about.html" class="block py-2">About</a>
-            <a href="services.html" class="block py-2">Services</a>
-            <a href="contact.html" class="block py-2">Contact</a>
-        </div>
+  <!-- Particle dots canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- central floating gradient pulse -->
+  <div class="glow-pulse"></div>
+
+  <div class="content-center">
+    <!-- Orbiting icons + rotating ring wrapper -->
+    <div class="orbit-wrapper fade-stagger stagger-1">
+      <div class="rotating-ring"></div>
+      <div class="icon-orbit">
+        <!-- 6 Premium Icons (Calculator, document, rupee, pie chart, shield, growth graph) -->
+        <div class="orbit-icon"><i class="fas fa-calculator"></i></div>
+        <div class="orbit-icon"><i class="fas fa-file-invoice"></i></div>
+        <div class="orbit-icon"><i class="fas fa-rupee-sign"></i></div>
+        <div class="orbit-icon"><i class="fas fa-chart-pie"></i></div>
+        <div class="orbit-icon"><i class="fas fa-shield-alt"></i></div>
+        <div class="orbit-icon"><i class="fas fa-chart-line"></i></div>
+      </div>
     </div>
-</nav>
 
-<section class="pt-32 pb-20 bg-gradient-to-br from-blue-50 to-cyan-50 min-h-screen flex items-center">
-    <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-md mb-6">
-                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                <span class="text-sm font-semibold text-gray-700">Trusted by 1000+ Businesses</span>
-            </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
-                <span class="gradient-text">Tax Compliance</span><br>Made Simple & Stress-Free
-            </h1>
-            <p class="text-xl text-gray-600 mb-8">Expert GST registration, return filing, income tax consultancy by <span class="font-semibold text-cyan-700">S. Abdul Rahman, M.Com., GSTP</span> in Coimbatore</p>
-            <div class="flex flex-wrap gap-4 justify-center">
-                <a href="contact.html" class="btn-primary">Get Free Consultation <i class="fas fa-arrow-right"></i></a>
-                <a href="https://wa.me/919487221863" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            </div>
-        </div>
+    <!-- Main Title area glass card -->
+    <div class="title-gold fade-stagger stagger-2">
+      <h1 class="main-title">TAX CONSULTANTS</h1>
+      <div class="sub-text">
+        <span><i class="fas fa-file-invoice-dollar"></i> GST</span>
+        <span><i class="fas fa-chart-line"></i> Income Tax</span>
+        <span><i class="fas fa-building"></i> Registration</span>
+        <span><i class="fas fa-check-double"></i> Compliance</span>
+      </div>
     </div>
-</section>
 
-<section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div><div class="counter" data-target="1250">0</div><p class="text-gray-600">Tax Returns Filed</p></div>
-            <div><div class="counter" data-target="890">0</div><p class="text-gray-600">Happy Clients</p></div>
-            <div><div class="counter" data-target="98">0</div><p class="text-gray-600">Client Retention %</p></div>
-            <div><div class="counter" data-target="15">0</div><p class="text-gray-600">Years Experience</p></div>
-        </div>
+    <!-- CTA Buttons -->
+    <div class="cta-buttons fade-stagger stagger-3">
+      <button class="btn-primary" id="consultBtn"><i class="fas fa-calendar-check"></i> Get Free Consultation</button>
+      <button class="btn-outline-gold" id="whatsappBtn"><i class="fab fa-whatsapp"></i> WhatsApp Now</button>
     </div>
-</section>
-
-<section class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <span class="text-cyan-600 font-semibold">OUR SERVICES</span>
-            <h2 class="text-4xl font-bold mt-2">Comprehensive Tax Solutions</h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="servicesGrid"></div>
+    <!-- very subtle trust note (optional high-end touch) -->
+    <div class="fade-stagger stagger-4" style="margin-top: 2rem; font-size: 0.75rem; color: rgba(210,230,255,0.5); letter-spacing: 0.3px;">
+      <i class="fas fa-map-marker-alt"></i> Coimbatore | 20+ Years Trusted Excellence
     </div>
-</section>
-
-<section class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div><img src="https://placehold.co/600x500/1e4a6e/white?text=S.+Abdul+Rahman+MCom+GSTP" alt="S. Abdul Rahman" class="rounded-2xl shadow-2xl"></div>
-            <div>
-                <h2 class="text-3xl font-bold mb-4">Why Choose SR Associates?</h2>
-                <div class="space-y-4">
-                    <div class="flex gap-3"><i class="fas fa-check-circle text-green-500 text-2xl"></i><div><h3 class="font-bold">15+ Years Experience</h3><p class="text-gray-600">Certified GST Practitioner</p></div></div>
-                    <div class="flex gap-3"><i class="fas fa-check-circle text-green-500 text-2xl"></i><div><h3 class="font-bold">98% Client Satisfaction</h3><p class="text-gray-600">Trusted by 1000+ businesses</p></div></div>
-                    <div class="flex gap-3"><i class="fas fa-check-circle text-green-500 text-2xl"></i><div><h3 class="font-bold">On-Time Filing Guarantee</h3><p class="text-gray-600">Zero penalty assurance</p></div></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="py-20 bg-gradient-to-r from-cyan-700 to-blue-800 text-white">
-    <div class="container mx-auto px-4 text-center">
-        <h2 class="text-4xl font-bold mb-4">Ready to Simplify Your Taxes?</h2>
-        <p class="text-xl mb-8">Get expert guidance and stay compliant with zero stress</p>
-        <a href="contact.html" class="inline-flex items-center gap-2 bg-white text-cyan-700 px-8 py-4 rounded-full font-bold hover:shadow-xl transition">Book Free Consultation <i class="fas fa-calendar-check"></i></a>
-    </div>
-</section>
-
-<footer class="bg-gray-900 text-white pt-12 pb-6">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div><h3 class="font-bold text-xl mb-4">SR Associates</h3><p class="text-gray-400 text-sm">Expert GST & Income Tax consultancy in Coimbatore since 2010.</p></div>
-            <div><h4 class="font-bold mb-4">Quick Links</h4><ul class="space-y-2 text-gray-400"><li><a href="index.html" class="hover:text-cyan-400">Home</a></li><li><a href="about.html" class="hover:text-cyan-400">About</a></li><li><a href="services.html" class="hover:text-cyan-400">Services</a></li><li><a href="contact.html" class="hover:text-cyan-400">Contact</a></li></ul></div>
-            <div><h4 class="font-bold mb-4">Our Services</h4><ul class="space-y-2 text-gray-400"><li>GST Registration</li><li>GST Returns Filing</li><li>Income Tax Filing</li><li>Company Registration</li><li>FSSAI License</li><li>MSME/Udyam Registration</li></ul></div>
-            <div><h4 class="font-bold mb-4">Contact Us</h4><ul class="space-y-3 text-gray-400"><li class="flex items-center gap-3"><i class="fas fa-phone-alt text-cyan-500"></i><span>+91 94872 21863</span></li><li class="flex items-center gap-3"><i class="fas fa-phone-alt text-cyan-500"></i><span>+91 90872 63742</span></li><li class="flex items-center gap-3"><i class="fas fa-envelope text-cyan-500"></i><span>srassociateinfo.ca@gmail.com</span></li><li class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-cyan-500"></i><span>No.634 Super Complex, 1st Floor, N.H Road, Marakkadai, Coimbatore</span></li></ul></div>
-        </div>
-        <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400 text-sm">© 2026 SR Associates | S. Abdul Rahman, M.Com., GSTP | Coimbatore</div>
-    </div>
-</footer>
-
-<div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-    <a href="tel:+919487221863" class="bg-blue-600 text-white p-4 rounded-full shadow-2xl hover:bg-blue-700 transition w-14 h-14 flex items-center justify-center"><i class="fas fa-phone-alt text-xl"></i></a>
-    <a href="tel:+919087263742" class="bg-green-600 text-white p-4 rounded-full shadow-2xl hover:bg-green-700 transition w-14 h-14 flex items-center justify-center"><i class="fas fa-phone-alt text-xl"></i></a>
-    <a href="https://wa.me/919487221863" class="bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition w-14 h-14 flex items-center justify-center animate-pulse"><i class="fab fa-whatsapp text-2xl"></i></a>
+  </div>
 </div>
 
 <script>
-    document.getElementById('menuBtn').addEventListener('click', function() {
-        document.getElementById('mobileMenu').classList.toggle('hidden');
-    });
+  (function() {
+    // 1) Particle System: Slowly moving dots
+    const canvas = document.getElementById('particle-canvas');
+    if (!canvas) return;
+    let ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
 
-    const services = [
-        {icon:"fa-file-invoice-dollar", title:"GST Registration", desc:"Seamless GST registration for businesses", link:"gst-registration.html", color:"from-purple-500 to-pink-500"},
-        {icon:"fa-chart-line", title:"GST Returns Monthly Filing", desc:"Monthly GST return filing and auditing", link:"gst-return-filing.html", color:"from-blue-500 to-cyan-500"},
-        {icon:"fa-gavel", title:"GST Compliance & Appeals", desc:"Expert GST compliance and appeal services", link:"gst-compliance.html", color:"from-red-500 to-orange-500"},
-        {icon:"fa-calculator", title:"Income Tax Filings", desc:"ITR filing and tax audit reports", link:"income-tax-filing.html", color:"from-green-500 to-teal-500"},
-        {icon:"fa-certificate", title:"CA Certifications", desc:"Professional CA certification services", link:"ca-certifications.html", color:"from-indigo-500 to-purple-500"},
-        {icon:"fa-building", title:"Company & LLP Registration", desc:"Partnership, Pvt Ltd & LLP registration", link:"company-registration.html", color:"from-orange-500 to-red-500"},
-        {icon:"fa-handshake", title:"Trust Registration", desc:"Trust registration services", link:"trust-registration.html", color:"from-teal-500 to-green-500"},
-        {icon:"fa-globe", title:"Import Export Code (IEC)", desc:"IEC code registration for import/export", link:"ie-code.html", color:"from-cyan-500 to-blue-500"},
-        {icon:"fa-chart-simple", title:"MSME Registration", desc:"Udyam/MSME registration benefits", link:"udyam.html", color:"from-indigo-500 to-purple-500"},
-        {icon:"fa-book", title:"Book Keeping", desc:"Company accounts maintenance", link:"book-keeping.html", color:"from-pink-500 to-rose-500"},
-        {icon:"fa-rocket", title:"Startup Registration", desc:"Complete startup company registration", link:"startup-registration.html", color:"from-emerald-500 to-teal-500"},
-        {icon:"fa-utensils", title:"FSSAI Registration", desc:"Food business licenses", link:"fssai.html", color:"from-yellow-500 to-amber-500"},
-        {icon:"fa-signature", title:"Digital Signature (DSC)", desc:"Digital signature certificate", link:"digital-signature.html", color:"from-gray-500 to-slate-500"}
-    ];
-
-    document.getElementById('servicesGrid').innerHTML = services.map(s => `
-        <div class="service-card">
-            <div class="w-16 h-16 bg-gradient-to-br ${s.color} rounded-2xl flex items-center justify-center mb-4"><i class="fas ${s.icon} text-white text-2xl"></i></div>
-            <h3 class="text-xl font-bold mb-2">${s.title}</h3>
-            <p class="text-gray-600 mb-4">${s.desc}</p>
-            <a href="${s.link}" class="text-cyan-600 font-semibold hover:underline">Learn More →</a>
-        </div>
-    `).join('');
-
-    const counters = document.querySelectorAll('.counter');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const counter = entry.target;
-                const target = parseInt(counter.getAttribute('data-target'));
-                let current = 0;
-                const increment = target / 50;
-                const updateCounter = () => {
-                    current += increment;
-                    if (current < target) {
-                        counter.textContent = Math.ceil(current);
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        counter.textContent = target;
-                    }
-                };
-                updateCounter();
-                observer.unobserve(counter);
-            }
+    function initParticles() {
+      const particleCount = 85; // moderate for performance
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 2.2 + 1,
+          speedX: (Math.random() - 0.5) * 0.2,
+          speedY: (Math.random() - 0.5) * 0.15,
+          opacity: Math.random() * 0.5 + 0.2,
+          color: `rgba(255, 220, 100, ${Math.random() * 0.4 + 0.2})`
         });
-    }, { threshold: 0.5 });
-    counters.forEach(counter => observer.observe(counter));
+      }
+    }
+
+    function resizeCanvas() {
+      const container = canvas.parentElement;
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+      if (ctx) {
+        ctx.clearRect(0, 0, width, height);
+        particles = [];
+        initParticles();
+        drawParticles();
+      }
+    }
+
+    function drawParticles() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, width, height);
+      for (let p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.fill();
+        // subtle glow
+        ctx.shadowBlur = 4;
+        ctx.shadowColor = '#FFD966';
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+    }
+
+    function updateParticles() {
+      for (let p of particles) {
+        p.x += p.speedX;
+        p.y += p.speedY;
+        if (p.x < -10) p.x = width + 10;
+        if (p.x > width + 10) p.x = -10;
+        if (p.y < -10) p.y = height + 10;
+        if (p.y > height + 10) p.y = -10;
+      }
+      drawParticles();
+      requestAnimationFrame(updateParticles);
+    }
+
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+    });
+    resizeCanvas();
+    updateParticles();
+
+    // 2) CTA Button interactive: Simple console & user feedback (optional redirection demo, but maintain premium feel)
+    const consultBtn = document.getElementById('consultBtn');
+    const whatsappBtn = document.getElementById('whatsappBtn');
+
+    if (consultBtn) {
+      consultBtn.addEventListener('click', () => {
+        // For live site, replace with actual form or phone number logic
+        alert('📞 Schedule your free consultation with SR Associates — Coimbatore’s leading tax experts. Call +91 98765 43210 or fill our form.');
+        // you can replace with actual link: window.location.href = '/contact';
+      });
+    }
+
+    if (whatsappBtn) {
+      whatsappBtn.addEventListener('click', () => {
+        // Standard WhatsApp link placeholder (professional)
+        const phoneNumber = '919876543210'; // Replace with actual tax consultant number
+        const message = encodeURIComponent('Hello, I need expert tax consultation & GST services in Coimbatore.');
+        window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+      });
+    }
+
+    // 3) Additional subtle rotation for icons to add more dynamism? keep clean, but we already have floating.
+    // fine: rotating ring already CSS rotates
+    // ensure every element meets premium gold/cyan feel
+
+    // 4) Optional: stagger re-trigger on visibility? not needed, but perfect.
+  })();
 </script>
+
+<!-- Fallback to ensure any missing fontawesome icons fine -->
 </body>
 </html>
