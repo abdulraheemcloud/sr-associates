@@ -4,286 +4,838 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>SR Associates | GST Practitioner Coimbatore - About Us</title>
-  <!-- Google Fonts + Tailwind + Font Awesome (lightweight) -->
-  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* additional global styling to complement hero-wrap */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
-      background: #f8fafc;
+      background: #f0f4f8;
     }
-    /* ensure hero-wrap integrates seamlessly */
+
+    /* Keyframes - Fixed all animations */
+    @keyframes floatY { 
+      0%,100%{transform:translateY(0)} 
+      50%{transform:translateY(-12px)} 
+    }
+    @keyframes floatY2 { 
+      0%,100%{transform:translateY(0)} 
+      50%{transform:translateY(-8px)} 
+    }
+    @keyframes pulse { 
+      0%,100%{opacity:0.4} 
+      50%{opacity:1} 
+    }
+    @keyframes scanline { 
+      0%{transform:translateY(-100%)} 
+      100%{transform:translateY(400%)} 
+    }
+    @keyframes orbit { 
+      0%{transform:rotate(0deg) translateX(130px) rotate(0deg)} 
+      100%{transform:rotate(360deg) translateX(130px) rotate(-360deg)} 
+    }
+    @keyframes orbit2 { 
+      0%{transform:rotate(120deg) translateX(110px) rotate(-120deg)} 
+      100%{transform:rotate(480deg) translateX(110px) rotate(-480deg)} 
+    }
+    @keyframes orbit3 { 
+      0%{transform:rotate(240deg) translateX(95px) rotate(-240deg)} 
+      100%{transform:rotate(600deg) translateX(95px) rotate(-600deg)} 
+    }
+    @keyframes dataflow { 
+      0%{stroke-dashoffset:200} 
+      100%{stroke-dashoffset:0} 
+    }
+    @keyframes slideIn { 
+      0%{opacity:0;transform:translateX(-20px)} 
+      100%{opacity:1;transform:translateX(0)} 
+    }
+    @keyframes fadeUp { 
+      0%{opacity:0;transform:translateY(14px)} 
+      100%{opacity:1;transform:translateY(0)} 
+    }
+    @keyframes particle { 
+      0%{transform:translateY(0) scale(1);opacity:0.8} 
+      100%{transform:translateY(-80px) scale(0);opacity:0} 
+    }
+
+    /* Hero Wrap */
     .hero-wrap {
-      margin: 0 auto;
+      width: 100%;
       max-width: 1400px;
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-      border-radius: 28px;
+      margin: 0 auto;
+      background: #050b18;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      font-family: 'Inter', sans-serif;
+      min-height: 600px;
+      display: flex;
+      align-items: stretch;
     }
-    /* smooth scroll behavior */
-    html {
-      scroll-behavior: smooth;
+
+    /* Background Elements */
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(20,60,120,.18) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(20,60,120,.18) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: 0;
+      pointer-events: none;
     }
-    .floating-icon {
-      animation: floatSoft 5s ease-in-out infinite;
+
+    .bg-glow-l {
+      position: absolute;
+      left: -80px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(20,100,200,.22) 0%, transparent 70%);
+      z-index: 0;
+      pointer-events: none;
     }
-    @keyframes floatSoft {
-      0% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-8px) rotate(2deg); }
-      100% { transform: translateY(0px) rotate(0deg); }
+
+    .bg-glow-r {
+      position: absolute;
+      right: -60px;
+      top: 30%;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(180,130,20,.12) 0%, transparent 70%);
+      z-index: 0;
+      pointer-events: none;
     }
-    .glass-card-premium {
-      background: rgba(255, 255, 255, 0.1);
+
+    .bg-glow-b {
+      position: absolute;
+      bottom: -60px;
+      left: 40%;
+      width: 320px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(10,80,180,.15) 0%, transparent 70%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Columns */
+    .left-col {
+      flex: 1.1;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px 32px 48px 44px;
+    }
+
+    .right-col {
+      flex: 0.9;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 36px 40px 20px;
+    }
+
+    /* Badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(212,175,55,.10);
+      border: 1px solid rgba(212,175,55,.35);
+      color: #d4af37;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      padding: 5px 14px;
+      border-radius: 100px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: #d4af37;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    /* Hero Title */
+    .hero-title {
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1.12;
+      color: #f0f4ff;
+      margin: 0 0 14px;
+      letter-spacing: -.02em;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    .hero-title span {
+      color: #d4af37;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: rgba(180,200,240,.65);
+      line-height: 1.7;
+      max-width: 340px;
+      margin: 0 0 28px;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    /* Stats Row */
+    .stats-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.8s 0.35s ease both;
+    }
+
+    .stat-box {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: 14px 18px;
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,rgba(212,175,55,.05) 0%,transparent 60%);
+      pointer-events: none;
+    }
+
+    .stat-num {
+      font-size: 22px;
+      font-weight: 800;
+      color: #f0f4ff;
+    }
+
+    .stat-lbl {
+      font-size: 10px;
+      color: rgba(180,200,240,.5);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin-top: 2px;
+    }
+
+    .stat-icon {
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    /* Credentials List */
+    .creds-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      animation: fadeUp 0.8s 0.45s ease both;
+    }
+
+    .cred-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      border-left: 2px solid #d4af37;
+      border-radius: 0 10px 10px 0;
+      padding: 10px 16px;
+      font-size: 12.5px;
+      color: rgba(200,215,255,.8);
+      animation: slideIn 0.6s ease both;
+    }
+
+    .cred-icon {
+      color: #d4af37;
+      width: 16px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    /* Figure Wrap */
+    .figure-wrap {
+      position: relative;
+      width: 300px;
+      height: 440px;
+    }
+
+    .figure-glow {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 220px;
+      height: 60px;
+      background: radial-gradient(ellipse, rgba(20,100,220,.35) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(8px);
+      z-index: 0;
+    }
+
+    /* Person SVG */
+    .person-svg {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      animation: floatY 6s ease-in-out infinite;
+    }
+
+    /* Orbit Tags */
+    .orbit-anchor {
+      position: absolute;
+      top: 38%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      z-index: 4;
+    }
+
+    .orbit-tag {
+      position: absolute;
+      top: -14px;
+      left: -14px;
+      background: rgba(10,20,50,.85);
+      border: 1px solid rgba(212,175,55,.4);
+      border-radius: 8px;
+      padding: 7px 12px;
+      white-space: nowrap;
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #d4af37;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0,0,0,.4);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .orbit-tag .ot-dot {
+      width: 5px;
+      height: 5px;
+      background: #d4af37;
+      border-radius: 50%;
+      animation: pulse 1.8s infinite;
+    }
+
+    .tag1 {
+      animation: orbit 9s linear infinite;
+      transform-origin: 0 0;
+    }
+
+    .tag2 {
+      animation: orbit2 12s linear infinite;
+      transform-origin: 0 0;
+    }
+
+    .tag3 {
+      animation: orbit3 7s linear infinite;
+      transform-origin: 0 0;
+    }
+
+    /* Glass Cards */
+    .glass-card {
+      position: absolute;
+      top: 18px;
+      right: -24px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(16px);
+      border-radius: 16px;
+      padding: 16px 18px;
+      width: 170px;
+      z-index: 5;
+      animation: floatY2 7s 1s ease-in-out infinite;
+      box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    }
+
+    .gc-title {
+      font-size: 10px;
+      color: rgba(180,200,255,.5);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 10px;
+    }
+
+    .gc-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 7px;
+    }
+
+    .gc-label {
+      font-size: 11px;
+      color: rgba(200,215,255,.7);
+    }
+
+    .gc-bar-wrap {
+      width: 70px;
+      height: 4px;
+      background: rgba(255,255,255,.1);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .gc-bar {
+      height: 100%;
+      border-radius: 4px;
+    }
+
+    .gc-val {
+      font-size: 10px;
+      font-weight: 600;
+      color: #d4af37;
+    }
+
+    .glass-card2 {
+      position: absolute;
+      bottom: 60px;
+      left: -28px;
+      background: rgba(5,20,60,.85);
+      border: 1px solid rgba(20,100,200,.35);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 215, 0, 0.25);
-      border-radius: 2rem;
+      border-radius: 14px;
+      padding: 14px 16px;
+      width: 148px;
+      z-index: 5;
+      animation: floatY2 8s 2s ease-in-out infinite;
+      box-shadow: 0 8px 32px rgba(0,0,0,.5);
     }
-    .stat-hover-glow {
-      transition: all 0.25s ease;
+
+    .verified-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(16,185,129,.12);
+      border: 1px solid rgba(16,185,129,.3);
+      border-radius: 100px;
+      padding: 4px 10px;
+      width: fit-content;
+      margin-bottom: 8px;
     }
-    .stat-hover-glow:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px -12px rgba(0,0,0,0.15);
+
+    .vb-dot {
+      width: 5px;
+      height: 5px;
+      background: #10b981;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    .vb-txt {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: #10b981;
+      letter-spacing: .05em;
+    }
+
+    .gc2-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: #f0f4ff;
+      line-height: 1.3;
+    }
+
+    .gc2-role {
+      font-size: 10px;
+      color: rgba(180,200,255,.5);
+      margin-top: 2px;
+    }
+
+    /* Scanline */
+    .scanline {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      border-radius: 20px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .scanline::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(20,100,220,.35), rgba(100,180,255,.5), rgba(20,100,220,.35), transparent);
+      animation: scanline 4s linear infinite;
+    }
+
+    /* Particles */
+    .particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .p-dot {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: #d4af37;
+      border-radius: 50%;
+      animation: particle 3s ease-out infinite;
+    }
+
+    /* Data Lines SVG */
+    .data-lines {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Bottom Strip */
+    .bottom-strip {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,.025);
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding: 10px 44px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      z-index: 10;
+    }
+
+    .bs-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 10.5px;
+      color: rgba(180,200,255,.45);
+    }
+
+    .bs-item strong {
+      color: rgba(200,220,255,.7);
+      font-weight: 600;
+    }
+
+    .bs-dot {
+      width: 4px;
+      height: 4px;
+      background: rgba(180,200,255,.25);
+      border-radius: 50%;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-wrap {
+        flex-direction: column;
+      }
+      .left-col {
+        padding: 40px 24px;
+      }
+      .right-col {
+        padding: 20px 24px 80px 24px;
+      }
+      .bottom-strip {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 8px 20px;
+      }
+      .glass-card, .glass-card2 {
+        transform: scale(0.9);
+      }
+      .hero-title {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .stats-row {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .bottom-strip .bs-item:last-child {
+        margin-left: 0 !important;
+      }
     }
   </style>
 </head>
-<body class="bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
+<body>
 
-  <!-- Navigation (fixed, modern) -->
-  <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-200/50">
-    <div class="container mx-auto px-4 py-3 md:py-4">
-      <div class="flex justify-between items-center">
-        <a href="#" class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-gradient-to-br from-cyan-700 to-blue-800 rounded-xl flex items-center justify-center shadow-md"><span class="text-white font-bold text-xl">SR</span></div>
-          <div><span class="font-bold text-xl text-gray-800">SR <span class="text-cyan-700">Associates</span></span><p class="text-xs text-gray-500">GST & Tax Consultants</p></div>
-        </a>
-        <div class="hidden md:flex items-center gap-8">
-          <a href="#" class="text-gray-600 hover:text-cyan-700 font-medium transition">Home</a>
-          <a href="#" class="text-cyan-700 font-semibold border-b-2 border-cyan-600 pb-1">About</a>
-          <a href="#" class="text-gray-600 hover:text-cyan-700 font-medium">Services</a>
-          <a href="#" class="text-gray-600 hover:text-cyan-700 font-medium">Contact</a>
-        </div>
-        <a href="#" class="hidden md:block bg-gradient-to-r from-cyan-700 to-blue-800 text-white px-5 py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition">Get Quote</a>
-        <button id="menuBtn" class="md:hidden text-2xl text-gray-700"><i class="fas fa-bars"></i></button>
+<div class="hero-wrap">
+  <div class="bg-grid"></div>
+  <div class="bg-glow-l"></div>
+  <div class="bg-glow-r"></div>
+  <div class="bg-glow-b"></div>
+  <div class="scanline"></div>
+
+  <!-- Particles -->
+  <div class="particles">
+    <div class="p-dot" style="left:8%;bottom:20%;animation-delay:0s;animation-duration:3.2s"></div>
+    <div class="p-dot" style="left:18%;bottom:35%;animation-delay:.8s;animation-duration:4s"></div>
+    <div class="p-dot" style="left:55%;bottom:15%;animation-delay:1.4s;animation-duration:3.5s"></div>
+    <div class="p-dot" style="left:75%;bottom:40%;animation-delay:.3s;animation-duration:2.8s"></div>
+    <div class="p-dot" style="left:88%;bottom:25%;animation-delay:2s;animation-duration:3.8s;background:#7dd3fc"></div>
+    <div class="p-dot" style="left:32%;bottom:55%;animation-delay:1s;animation-duration:4.2s;background:#7dd3fc"></div>
+    <div class="p-dot" style="left:65%;bottom:60%;animation-delay:2.5s;animation-duration:3s"></div>
+    <div class="p-dot" style="left:45%;bottom:45%;animation-delay:1.2s;animation-duration:3.6s"></div>
+    <div class="p-dot" style="left:12%;bottom:70%;animation-delay:0.5s;animation-duration:4.5s"></div>
+  </div>
+
+  <!-- Data lines SVG -->
+  <svg class="data-lines" viewBox="0 0 800 600" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="rgba(20,100,220,0)"/>
+        <stop offset="50%" stop-color="rgba(20,100,220,0.3)"/>
+        <stop offset="100%" stop-color="rgba(20,100,220,0)"/>
+      </linearGradient>
+      <linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="rgba(212,175,55,0)"/>
+        <stop offset="50%" stop-color="rgba(212,175,55,0.2)"/>
+        <stop offset="100%" stop-color="rgba(212,175,55,0)"/>
+      </linearGradient>
+    </defs>
+    <line x1="0" y1="180" x2="800" y2="180" stroke="url(#lg1)" stroke-width="0.5"/>
+    <line x1="0" y1="320" x2="800" y2="320" stroke="url(#lg2)" stroke-width="0.5"/>
+    <line x1="0" y1="460" x2="800" y2="460" stroke="url(#lg1)" stroke-width="0.5"/>
+    <path d="M 80 0 L 80 600" stroke="rgba(20,100,220,0.08)" stroke-width="0.5"/>
+    <path d="M 420 0 L 420 600" stroke="rgba(212,175,55,0.06)" stroke-width="0.5"/>
+    <path d="M 720 0 L 720 600" stroke="rgba(20,100,220,0.06)" stroke-width="0.5"/>
+    <line x1="0" y1="120" x2="500" y2="120" stroke="rgba(20,100,220,0.15)" stroke-width="0.8" stroke-dasharray="8 16" style="stroke-dashoffset:200;animation:dataflow 3s linear infinite"/>
+    <line x1="300" y1="400" x2="800" y2="400" stroke="rgba(212,175,55,0.12)" stroke-width="0.8" stroke-dasharray="6 14" style="stroke-dashoffset:200;animation:dataflow 4s 1s linear infinite"/>
+  </svg>
+
+  <!-- LEFT COL -->
+  <div class="left-col">
+    <div class="badge"><div class="badge-dot"></div> GST Practitioner · Est. 2010</div>
+
+    <h1 class="hero-title">
+      S. Abdul Rahman<br>
+      <span>M.Com., GSTP</span>
+    </h1>
+
+    <p class="hero-sub">
+      Founder & Principal Consultant at SR Associates — 15+ years of dedicated GST and Income Tax expertise, trusted by 1000+ businesses across Coimbatore.
+    </p>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-icon" style="color:#d4af37">◆</div>
+        <div class="stat-num">15+</div>
+        <div class="stat-lbl">Years Exp.</div>
       </div>
-      <div id="mobileMenu" class="md:hidden hidden mt-4 space-y-3 pb-2">
-        <a href="#" class="block py-2 text-gray-700">Home</a>
-        <a href="#" class="block py-2 text-cyan-700 font-semibold">About</a>
-        <a href="#" class="block py-2 text-gray-700">Services</a>
-        <a href="#" class="block py-2 text-gray-700">Contact</a>
+      <div class="stat-box">
+        <div class="stat-icon" style="color:#7dd3fc">◆</div>
+        <div class="stat-num">1000+</div>
+        <div class="stat-lbl">Clients</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-icon" style="color:#10b981">◆</div>
+        <div class="stat-num">100%</div>
+        <div class="stat-lbl">Compliant</div>
       </div>
     </div>
-  </nav>
 
-  <!-- main container to center hero -->
-  <div class="pt-24 pb-8 px-4 md:px-6 max-w-7xl mx-auto">
-    <!-- Hero component (provided) -->
-    <div class="hero-wrap">
-      <!-- the entire hero-wrap content from the prompt (styles and HTML) -->
-      <div class="bg-grid"></div>
-      <div class="bg-glow-l"></div>
-      <div class="bg-glow-r"></div>
-      <div class="bg-glow-b"></div>
-      <div class="scanline"></div>
-      <div class="particles">
-        <div class="p-dot" style="left:8%;bottom:20%;animation-delay:0s;animation-duration:3.2s"></div>
-        <div class="p-dot" style="left:18%;bottom:35%;animation-delay:.8s;animation-duration:4s"></div>
-        <div class="p-dot" style="left:55%;bottom:15%;animation-delay:1.4s;animation-duration:3.5s"></div>
-        <div class="p-dot" style="left:75%;bottom:40%;animation-delay:.3s;animation-duration:2.8s"></div>
-        <div class="p-dot" style="left:88%;bottom:25%;animation-delay:2s;animation-duration:3.8s;background:#7dd3fc"></div>
-        <div class="p-dot" style="left:32%;bottom:55%;animation-delay:1s;animation-duration:4.2s;background:#7dd3fc"></div>
-        <div class="p-dot" style="left:65%;bottom:60%;animation-delay:2.5s;animation-duration:3s"></div>
+    <div class="creds-list">
+      <div class="cred-item" style="animation-delay:0.5s"><span class="cred-icon">✦</span> Master of Commerce (M.Com)</div>
+      <div class="cred-item" style="animation-delay:0.65s"><span class="cred-icon">✦</span> Certified GST Practitioner (GSTP)</div>
+      <div class="cred-item" style="animation-delay:0.8s"><span class="cred-icon">✦</span> 24-Hour Filing Turnaround</div>
+      <div class="cred-item" style="animation-delay:0.95s"><span class="cred-icon">✦</span> Bank-Grade Data Security</div>
+    </div>
+  </div>
+
+  <!-- RIGHT COL -->
+  <div class="right-col" style="padding-bottom:60px">
+    <div class="figure-wrap">
+
+      <!-- Orbit anchor -->
+      <div class="orbit-anchor">
+        <div class="tag1">
+          <div class="orbit-tag"><div class="ot-dot"></div> GST Filing</div>
+        </div>
+        <div class="tag2">
+          <div class="orbit-tag"><div class="ot-dot" style="background:#7dd3fc"></div><span style="color:#7dd3fc">ITR Returns</span></div>
+        </div>
+        <div class="tag3">
+          <div class="orbit-tag"><div class="ot-dot" style="background:#10b981"></div><span style="color:#10b981">Tax Audit</span></div>
+        </div>
       </div>
-      <svg class="data-lines" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+
+      <!-- Performance card -->
+      <div class="glass-card">
+        <div class="gc-title">Filing Score</div>
+        <div class="gc-row">
+          <span class="gc-label">Speed</span>
+          <div class="gc-bar-wrap"><div class="gc-bar" style="width:95%;background:linear-gradient(90deg,#d4af37,#f5d76e)"></div></div>
+          <span class="gc-val">95%</span>
+        </div>
+        <div class="gc-row">
+          <span class="gc-label">Accuracy</span>
+          <div class="gc-bar-wrap"><div class="gc-bar" style="width:100%;background:linear-gradient(90deg,#10b981,#6ee7b7)"></div></div>
+          <span class="gc-val">100%</span>
+        </div>
+        <div class="gc-row" style="margin-bottom:0">
+          <span class="gc-label">Trust</span>
+          <div class="gc-bar-wrap"><div class="gc-bar" style="width:98%;background:linear-gradient(90deg,#3b82f6,#93c5fd)"></div></div>
+          <span class="gc-val">98%</span>
+        </div>
+      </div>
+
+      <!-- Identity card -->
+      <div class="glass-card2">
+        <div class="verified-badge"><div class="vb-dot"></div><div class="vb-txt">GSTP Verified</div></div>
+        <div class="gc2-name">S. Abdul Rahman</div>
+        <div class="gc2-role">Principal Consultant</div>
+        <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.07);display:flex;gap:10px">
+          <div style="text-align:center">
+            <div style="font-size:14px;font-weight:800;color:#d4af37">1000+</div>
+            <div style="font-size:9px;color:rgba(180,200,255,.4);text-transform:uppercase">Clients</div>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,.08)"></div>
+          <div style="text-align:center">
+            <div style="font-size:14px;font-weight:800;color:#7dd3fc">2010</div>
+            <div style="font-size:9px;color:rgba(180,200,255,.4);text-transform:uppercase">Est.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Glow base -->
+      <div class="figure-glow"></div>
+
+      <!-- Person SVG -->
+      <svg class="person-svg" width="230" height="400" viewBox="0 0 230 400" fill="none">
         <defs>
-          <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="rgba(20,100,220,0)"/>
-            <stop offset="50%" stop-color="rgba(20,100,220,0.3)"/>
-            <stop offset="100%" stop-color="rgba(20,100,220,0)"/>
-          </linearGradient>
-          <linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="rgba(212,175,55,0)"/>
-            <stop offset="50%" stop-color="rgba(212,175,55,0.2)"/>
-            <stop offset="100%" stop-color="rgba(212,175,55,0)"/>
-          </linearGradient>
+          <radialGradient id="skinGrad" cx="50%" cy="30%" r="60%">
+            <stop offset="0%" stop-color="#c8956c"/>
+            <stop offset="100%" stop-color="#a0694a"/>
+          </radialGradient>
+          <radialGradient id="suitGrad" cx="50%" cy="0%" r="100%">
+            <stop offset="0%" stop-color="#1e2a45"/>
+            <stop offset="100%" stop-color="#0d1626"/>
+          </radialGradient>
+          <radialGradient id="hairGrad" cx="50%" cy="0%" r="80%">
+            <stop offset="0%" stop-color="#2c1810"/>
+            <stop offset="100%" stop-color="#140c08"/>
+          </radialGradient>
         </defs>
-        <line x1="0" y1="180" x2="800" y2="180" stroke="url(#lg1)" stroke-width="0.5"/>
-        <line x1="0" y1="320" x2="800" y2="320" stroke="url(#lg2)" stroke-width="0.5"/>
-        <line x1="0" y1="460" x2="800" y2="460" stroke="url(#lg1)" stroke-width="0.5"/>
-        <path d="M 80 0 L 80 600" stroke="rgba(20,100,220,0.08)" stroke-width="0.5"/>
-        <path d="M 420 0 L 420 600" stroke="rgba(212,175,55,0.06)" stroke-width="0.5"/>
-        <path d="M 720 0 L 720 600" stroke="rgba(20,100,220,0.06)" stroke-width="0.5"/>
-        <line x1="0" y1="120" x2="500" y2="120" stroke="rgba(20,100,220,0.15)" stroke-width="0.8" stroke-dasharray="8 16" style="stroke-dashoffset:200;animation:dataflow 3s linear infinite"/>
-        <line x1="300" y1="400" x2="800" y2="400" stroke="rgba(212,175,55,0.12)" stroke-width="0.8" stroke-dasharray="6 14" style="stroke-dashoffset:200;animation:dataflow 4s 1s linear infinite"/>
+
+        <!-- Shadow -->
+        <ellipse cx="115" cy="398" rx="60" ry="6" fill="rgba(0,0,0,0.35)"/>
+
+        <!-- Legs -->
+        <rect x="85" y="280" width="26" height="110" rx="4" fill="#1a2540"/>
+        <rect x="119" y="280" width="26" height="110" rx="4" fill="#1a2540"/>
+
+        <!-- Shoes -->
+        <ellipse cx="98" cy="392" rx="20" ry="9" fill="#1a1a2e"/>
+        <ellipse cx="132" cy="392" rx="20" ry="9" fill="#1a1a2e"/>
+
+        <!-- Suit -->
+        <path d="M60,220 Q58,180 65,155 L82,148 L115,170 L148,148 L165,155 Q172,180 170,220 L170,285 L60,285 Z" fill="url(#suitGrad)"/>
+
+        <!-- Shirt -->
+        <path d="M92,195 L115,205 L138,195 L138,240 L115,248 L92,240 Z" fill="#e8f0fe"/>
+
+        <!-- Tie -->
+        <path d="M110,196 L115,200 L120,196 L118,248 L115,252 L112,248 Z" fill="#1a3a7c"/>
+
+        <!-- Pocket square -->
+        <path d="M64,173 L72,165 L78,172 L74,178 Z" fill="#d4af37" opacity="0.9"/>
+
+        <!-- Left Arm -->
+        <path d="M65,155 Q48,165 42,185 Q38,200 40,215" stroke="#1e2a45" stroke-width="22" stroke-linecap="round" fill="none"/>
+        <path d="M40,215 Q42,238 70,248 Q90,255 115,252" stroke="#1e2a45" stroke-width="20" stroke-linecap="round" fill="none"/>
+
+        <!-- Right Arm -->
+        <path d="M165,155 Q182,165 188,182 Q192,200 190,218" stroke="#1e2a45" stroke-width="22" stroke-linecap="round" fill="none"/>
+        <path d="M190,218 Q190,238 182,252 Q175,262 165,270" stroke="#1e2a45" stroke-width="20" stroke-linecap="round" fill="none"/>
+
+        <!-- Hands -->
+        <ellipse cx="115" cy="254" rx="12" ry="8" fill="url(#skinGrad)"/>
+        <ellipse cx="162" cy="272" rx="10" ry="8" fill="url(#skinGrad)"/>
+
+        <!-- File -->
+        <rect x="62" y="232" width="82" height="56" rx="5" fill="#f5f5f0" transform="rotate(-3 62 232)"/>
+        <text x="80" y="250" font-size="11" font-weight="700" fill="#1a3a7c" font-family="Inter,sans-serif" transform="rotate(-3 80 250)" opacity="0.8">GST Returns</text>
+        <rect x="98" y="231" width="22" height="5" rx="2" fill="#d4af37" transform="rotate(-3 98 231)" opacity="0.9"/>
+
+        <!-- Neck & Head -->
+        <rect x="107" y="130" width="16" height="26" rx="5" fill="url(#skinGrad)"/>
+        <ellipse cx="115" cy="108" rx="35" ry="40" fill="url(#skinGrad)"/>
+
+        <!-- Hair -->
+        <ellipse cx="115" cy="72" rx="33" ry="18" fill="url(#hairGrad)"/>
+        <path d="M80,90 Q76,100 79,110 Q82,78 80,90 Z" fill="url(#hairGrad)"/>
+        <path d="M150,90 Q154,100 151,110 Q148,78 150,90 Z" fill="url(#hairGrad)"/>
+
+        <!-- Eyebrows -->
+        <path d="M97,96 Q103,92 108,94" stroke="#3d1f0f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <path d="M122,94 Q127,92 133,96" stroke="#3d1f0f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+        <!-- Eyes -->
+        <ellipse cx="103" cy="104" rx="8" ry="6" fill="white"/>
+        <ellipse cx="127" cy="104" rx="8" ry="6" fill="white"/>
+        <circle cx="104" cy="104" r="4.5" fill="#3d2010"/>
+        <circle cx="128" cy="104" r="4.5" fill="#3d2010"/>
+        <circle cx="104.5" cy="104" r="2.5" fill="#0a0605"/>
+        <circle cx="128.5" cy="104" r="2.5" fill="#0a0605"/>
+
+        <!-- Smile -->
+        <path d="M105,132 Q115,138 125,132" stroke="rgba(120,60,30,0.6)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+
+        <!-- Glasses -->
+        <rect x="93" y="99" width="20" height="14" rx="6" stroke="#8a7050" stroke-width="1.5" fill="rgba(200,220,255,0.08)"/>
+        <rect x="117" y="99" width="20" height="14" rx="6" stroke="#8a7050" stroke-width="1.5" fill="rgba(200,220,255,0.08)"/>
+        <line x1="113" y1="106" x2="117" y2="106" stroke="#8a7050" stroke-width="1.5"/>
+        <line x1="93" y1="106" x2="80" y2="106" stroke="#8a7050" stroke-width="1.2"/>
+        <line x1="137" y1="106" x2="150" y2="106" stroke="#8a7050" stroke-width="1.2"/>
+
+        <!-- Gold Pin -->
+        <circle cx="130" cy="168" r="3" fill="#d4af37" opacity="0.9"/>
       </svg>
-      <div class="left-col">
-        <div class="badge"><div class="badge-dot"></div> GST Practitioner · Est. 2010</div>
-        <h1 class="hero-title">S. Abdul Rahman<br><span>M.Com., GSTP</span></h1>
-        <p class="hero-sub">Founder & Principal Consultant at SR Associates — 15+ years of dedicated GST and Income Tax expertise, trusted by 1000+ businesses across Coimbatore.</p>
-        <div class="stats-row">
-          <div class="stat-box"><div class="stat-icon" style="color:#d4af37">◆</div><div class="stat-num">15+</div><div class="stat-lbl">Years Exp.</div></div>
-          <div class="stat-box"><div class="stat-icon" style="color:#7dd3fc">◆</div><div class="stat-num">1000+</div><div class="stat-lbl">Clients</div></div>
-          <div class="stat-box"><div class="stat-icon" style="color:#10b981">◆</div><div class="stat-num">100%</div><div class="stat-lbl">Compliant</div></div>
-        </div>
-        <div class="creds-list">
-          <div class="cred-item" style="animation:slideIn .6s .5s both"><span class="cred-icon">✦</span> Master of Commerce (M.Com)</div>
-          <div class="cred-item" style="animation:slideIn .6s .65s both"><span class="cred-icon">✦</span> Certified GST Practitioner (GSTP)</div>
-          <div class="cred-item" style="animation:slideIn .6s .8s both"><span class="cred-icon">✦</span> 24-Hour Filing Turnaround</div>
-          <div class="cred-item" style="animation:slideIn .6s .95s both"><span class="cred-icon">✦</span> Bank-Grade Data Security</div>
-        </div>
-      </div>
-      <div class="right-col" style="padding-bottom:60px">
-        <div class="figure-wrap">
-          <div class="orbit-anchor" style="top:38%;left:50%">
-            <div class="tag1"><div class="orbit-tag"><div class="ot-dot"></div> GST Filing</div></div>
-            <div class="tag2"><div class="orbit-tag"><div class="ot-dot" style="background:#7dd3fc;box-shadow:none"></div><span style="color:#7dd3fc">ITR Returns</span></div></div>
-            <div class="tag3"><div class="orbit-tag"><div class="ot-dot" style="background:#10b981;box-shadow:none"></div><span style="color:#10b981">Tax Audit</span></div></div>
-          </div>
-          <div class="glass-card">
-            <div class="gc-title">Filing Score</div>
-            <div class="gc-row"><span class="gc-label">Speed</span><div class="gc-bar-wrap"><div class="gc-bar" style="width:95%;background:linear-gradient(90deg,#d4af37,#f5d76e)"></div></div><span class="gc-val">95%</span></div>
-            <div class="gc-row"><span class="gc-label">Accuracy</span><div class="gc-bar-wrap"><div class="gc-bar" style="width:100%;background:linear-gradient(90deg,#10b981,#6ee7b7)"></div></div><span class="gc-val">100%</span></div>
-            <div class="gc-row" style="margin-bottom:0"><span class="gc-label">Trust</span><div class="gc-bar-wrap"><div class="gc-bar" style="width:98%;background:linear-gradient(90deg,#3b82f6,#93c5fd)"></div></div><span class="gc-val">98%</span></div>
-          </div>
-          <div class="glass-card2">
-            <div class="verified-badge"><div class="vb-dot"></div><div class="vb-txt">GSTP Verified</div></div>
-            <div class="gc2-name">S. Abdul Rahman</div>
-            <div class="gc2-role">Principal Consultant</div>
-            <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.07);display:flex;gap:10px">
-              <div style="text-align:center"><div style="font-size:14px;font-weight:800;color:#d4af37">1000+</div><div style="font-size:9px;color:rgba(180,200,255,.4);text-transform:uppercase">Clients</div></div>
-              <div style="width:1px;background:rgba(255,255,255,.08)"></div>
-              <div style="text-align:center"><div style="font-size:14px;font-weight:800;color:#7dd3fc">2010</div><div style="font-size:9px;color:rgba(180,200,255,.4);text-transform:uppercase">Est.</div></div>
-            </div>
-          </div>
-          <div class="figure-glow"></div>
-          <svg class="person-svg" width="230" height="400" viewBox="0 0 230 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="skinGrad" cx="50%" cy="30%" r="60%"><stop offset="0%" stop-color="#c8956c"/><stop offset="100%" stop-color="#a0694a"/></radialGradient>
-              <radialGradient id="suitGrad" cx="50%" cy="0%" r="100%"><stop offset="0%" stop-color="#1e2a45"/><stop offset="100%" stop-color="#0d1626"/></radialGradient>
-              <radialGradient id="shirtGrad" cx="50%" cy="0%" r="100%"><stop offset="0%" stop-color="#e8f0fe"/><stop offset="100%" stop-color="#c8d8f8"/></radialGradient>
-              <linearGradient id="tieGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a3a7c"/><stop offset="100%" stop-color="#0f1f4a"/></linearGradient>
-              <radialGradient id="fileGrad" cx="50%" cy="30%" r="70%"><stop offset="0%" stop-color="#f5f5f0"/><stop offset="100%" stop-color="#dde0e8"/></radialGradient>
-              <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-              <linearGradient id="legGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a2540"/><stop offset="100%" stop-color="#0d1626"/></linearGradient>
-              <linearGradient id="shoeGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1a2e"/><stop offset="100%" stop-color="#0a0a18"/></linearGradient>
-              <radialGradient id="hairGrad" cx="50%" cy="0%" r="80%"><stop offset="0%" stop-color="#2c1810"/><stop offset="100%" stop-color="#140c08"/></radialGradient>
-            </defs>
-            <ellipse cx="115" cy="398" rx="60" ry="6" fill="rgba(0,0,0,0.35)"/>
-            <rect x="85" y="280" width="26" height="110" rx="4" fill="url(#legGrad)"/><rect x="119" y="280" width="26" height="110" rx="4" fill="url(#legGrad)"/>
-            <rect x="88" y="285" width="5" height="90" rx="2" fill="rgba(255,255,255,0.05)"/><rect x="122" y="285" width="5" height="90" rx="2" fill="rgba(255,255,255,0.05)"/>
-            <ellipse cx="98" cy="392" rx="20" ry="9" fill="url(#shoeGrad)"/><ellipse cx="132" cy="392" rx="20" ry="9" fill="url(#shoeGrad)"/>
-            <ellipse cx="96" cy="390" rx="8" ry="4" fill="rgba(255,255,255,0.04)"/><ellipse cx="130" cy="390" rx="8" ry="4" fill="rgba(255,255,255,0.04)"/>
-            <path d="M60,220 Q58,180 65,155 L82,148 L115,170 L148,148 L165,155 Q172,180 170,220 L170,285 L60,285 Z" fill="url(#suitGrad)"/>
-            <path d="M115,170 L96,155 L82,148 L92,195 Z" fill="#253456"/><path d="M115,170 L134,155 L148,148 L138,195 Z" fill="#253456"/>
-            <path d="M92,195 L115,205 L138,195 L138,240 L115,248 L92,240 Z" fill="url(#shirtGrad)"/>
-            <path d="M110,196 L115,200 L120,196 L118,248 L115,252 L112,248 Z" fill="url(#tieGrad)"/>
-            <path d="M110,196 L115,202 L120,196 L117,192 L113,192 Z" fill="#1d4090"/><path d="M112,215 L118,215 L117,222 L113,222 Z" fill="rgba(255,255,255,0.12)"/>
-            <circle cx="115" cy="222" r="2.5" fill="rgba(200,215,255,0.18)"/><circle cx="115" cy="234" r="2.5" fill="rgba(200,215,255,0.18)"/>
-            <path d="M64,173 L72,165 L78,172 L74,178 Z" fill="#d4af37" opacity="0.9"/>
-            <path d="M65,155 Q48,165 42,185 Q38,200 40,215" stroke="#1e2a45" stroke-width="22" stroke-linecap="round" fill="none"/>
-            <path d="M40,215 Q42,238 70,248 Q90,255 115,252" stroke="#1e2a45" stroke-width="20" stroke-linecap="round" fill="none"/>
-            <path d="M165,155 Q182,165 188,182 Q192,200 190,218" stroke="#1e2a45" stroke-width="22" stroke-linecap="round" fill="none"/>
-            <path d="M190,218 Q190,238 182,252 Q175,262 165,270" stroke="#1e2a45" stroke-width="20" stroke-linecap="round" fill="none"/>
-            <ellipse cx="115" cy="254" rx="12" ry="8" fill="url(#skinGrad)"/><rect x="90" y="248" width="10" height="7" rx="3" fill="url(#skinGrad)"/><rect x="103" y="248" width="10" height="7" rx="3" fill="url(#skinGrad)"/>
-            <ellipse cx="162" cy="272" rx="10" ry="8" fill="url(#skinGrad)"/>
-            <rect x="58" y="228" width="84" height="58" rx="5" fill="#2a4070" transform="rotate(-6 58 228)"/>
-            <rect x="62" y="232" width="82" height="56" rx="5" fill="url(#fileGrad)" transform="rotate(-3 62 232)"/>
-            <rect x="66" y="236" width="74" height="4" rx="1" fill="rgba(40,80,160,0.15)" transform="rotate(-3 66 236)"/><rect x="66" y="244" width="60" height="3" rx="1" fill="rgba(40,80,160,0.12)" transform="rotate(-3 66 244)"/>
-            <rect x="66" y="251" width="66" height="3" rx="1" fill="rgba(40,80,160,0.12)" transform="rotate(-3 66 251)"/><rect x="66" y="258" width="48" height="3" rx="1" fill="rgba(40,80,160,0.10)" transform="rotate(-3 66 258)"/>
-            <text x="80" y="250" font-size="11" font-weight="700" fill="#1a3a7c" font-family="Inter,sans-serif" transform="rotate(-3 80 250)" opacity="0.8">GST Returns</text>
-            <rect x="98" y="231" width="22" height="5" rx="2" fill="#d4af37" transform="rotate(-3 98 231)" opacity="0.9"/>
-            <rect x="107" y="130" width="16" height="26" rx="5" fill="url(#skinGrad)"/><ellipse cx="115" cy="108" rx="35" ry="40" fill="url(#skinGrad)"/>
-            <ellipse cx="80" cy="110" rx="6" ry="9" fill="url(#skinGrad)"/><ellipse cx="150" cy="110" rx="6" ry="9" fill="url(#skinGrad)"/>
-            <path d="M80,90 Q82,62 115,58 Q148,62 150,90 Q148,72 115,68 Q82,72 80,90 Z" fill="url(#hairGrad)"/><ellipse cx="115" cy="72" rx="33" ry="18" fill="url(#hairGrad)"/>
-            <path d="M80,90 Q76,100 79,110 Q82,78 80,90 Z" fill="url(#hairGrad)"/><path d="M150,90 Q154,100 151,110 Q148,78 150,90 Z" fill="url(#hairGrad)"/>
-            <ellipse cx="110" cy="82" rx="16" ry="10" fill="rgba(255,220,180,0.1)"/>
-            <path d="M97,96 Q103,92 108,94" stroke="#3d1f0f" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M122,94 Q127,92 133,96" stroke="#3d1f0f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-            <ellipse cx="103" cy="104" rx="8" ry="6" fill="white"/><ellipse cx="127" cy="104" rx="8" ry="6" fill="white"/>
-            <circle cx="104" cy="104" r="4.5" fill="#3d2010"/><circle cx="128" cy="104" r="4.5" fill="#3d2010"/>
-            <circle cx="104.5" cy="104" r="2.5" fill="#0a0605"/><circle cx="128.5" cy="104" r="2.5" fill="#0a0605"/>
-            <circle cx="106" cy="102" r="1.2" fill="rgba(255,255,255,0.8)"/><circle cx="130" cy="102" r="1.2" fill="rgba(255,255,255,0.8)"/>
-            <path d="M95,104 Q103,98 111,104" stroke="rgba(80,40,20,0.5)" stroke-width="1" fill="none"/><path d="M119,104 Q127,98 135,104" stroke="rgba(80,40,20,0.5)" stroke-width="1" fill="none"/>
-            <path d="M113,112 Q111,118 109,122 Q113,125 115,124 Q117,125 121,122 Q119,118 117,112" fill="rgba(140,80,40,0.25)"/>
-            <ellipse cx="111" cy="122" rx="4" ry="2.5" fill="rgba(100,50,20,0.2)"/><ellipse cx="119" cy="122" rx="4" ry="2.5" fill="rgba(100,50,20,0.2)"/>
-            <path d="M105,132 Q115,138 125,132" stroke="rgba(120,60,30,0.6)" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M107,130 Q115,132 123,130" stroke="rgba(100,40,20,0.35)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
-            <ellipse cx="92" cy="122" rx="12" ry="8" fill="rgba(200,100,70,0.08)"/><ellipse cx="138" cy="122" rx="12" ry="8" fill="rgba(200,100,70,0.08)"/>
-            <rect x="93" y="99" width="20" height="14" rx="6" stroke="#8a7050" stroke-width="1.5" fill="rgba(200,220,255,0.08)"/><rect x="117" y="99" width="20" height="14" rx="6" stroke="#8a7050" stroke-width="1.5" fill="rgba(200,220,255,0.08)"/>
-            <line x1="113" y1="106" x2="117" y2="106" stroke="#8a7050" stroke-width="1.5"/><line x1="93" y1="106" x2="80" y2="106" stroke="#8a7050" stroke-width="1.2"/><line x1="137" y1="106" x2="150" y2="106" stroke="#8a7050" stroke-width="1.2"/>
-            <path d="M97,103 Q100,101 103,103" stroke="rgba(255,255,255,0.3)" stroke-width="0.8" fill="none"/><path d="M121,103 Q124,101 127,103" stroke="rgba(255,255,255,0.3)" stroke-width="0.8" fill="none"/>
-            <path d="M92,153 L100,160 L115,152 L130,160 L138,153" stroke="rgba(255,255,255,0.08)" stroke-width="1" fill="none"/>
-            <circle cx="130" cy="168" r="3" fill="#d4af37" filter="url(#glow)" opacity="0.9"/><circle cx="130" cy="168" r="1.5" fill="#fff" opacity="0.6"/>
-            <path d="M65,158 Q70,175 68,200" stroke="rgba(255,255,255,0.06)" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M165,158 Q160,175 162,200" stroke="rgba(255,255,255,0.04)" stroke-width="3" stroke-linecap="round" fill="none"/>
-          </svg>
-        </div>
-      </div>
-      <div class="bottom-strip">
-        <div class="bs-item"><strong>GST Registration</strong></div><div class="bs-dot"></div>
-        <div class="bs-item"><strong>ITR Filing</strong></div><div class="bs-dot"></div>
-        <div class="bs-item"><strong>Company Registration</strong></div><div class="bs-dot"></div>
-        <div class="bs-item"><strong>FSSAI · MSME · Udyam</strong></div><div class="bs-dot"></div>
-        <div class="bs-item" style="margin-left:auto"><div style="width:5px;height:5px;background:#d4af37;border-radius:50%;animation:pulse 1.5s infinite;margin-right:4px"></div><strong style="color:rgba(212,175,55,.7)">Coimbatore · Since 2010</strong></div>
-      </div>
     </div>
   </div>
 
-  <!-- Additional content: Why choose us / Values (modern section) -->
-  <section class="py-16 bg-white/80 relative">
-    <div class="container mx-auto px-4 max-w-6xl">
-      <div class="text-center mb-10">
-        <span class="text-amber-600 text-sm font-semibold tracking-wide bg-amber-50 px-4 py-1 rounded-full">Core Values</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-3">Driving Trust & <span class="text-cyan-700">Tax Excellence</span></h2>
-        <div class="w-20 h-1 bg-amber-400 mx-auto mt-3 rounded-full"></div>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-xl transition"><i class="fas fa-file-invoice-dollar text-3xl text-amber-500 mb-4"></i><h3 class="text-xl font-bold">Zero Error Filing</h3><p class="text-gray-600 mt-2">Rigorous internal audits and real-time validation ensure 100% compliance for GST & ITR.</p></div>
-        <div class="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-xl transition"><i class="fas fa-clock text-3xl text-cyan-600 mb-4"></i><h3 class="text-xl font-bold">24H Turnaround</h3><p class="text-gray-600 mt-2">Fastest document processing and return filing without compromising accuracy.</p></div>
-        <div class="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-xl transition"><i class="fas fa-shield-alt text-3xl text-emerald-600 mb-4"></i><h3 class="text-xl font-bold">Bank-Grade Security</h3><p class="text-gray-600 mt-2">Client data encrypted with enterprise-level protection and confidentiality.</p></div>
-      </div>
+  <!-- Bottom strip -->
+  <div class="bottom-strip">
+    <div class="bs-item"><strong>GST Registration</strong></div>
+    <div class="bs-dot"></div>
+    <div class="bs-item"><strong>ITR Filing</strong></div>
+    <div class="bs-dot"></div>
+    <div class="bs-item"><strong>Company Registration</strong></div>
+    <div class="bs-dot"></div>
+    <div class="bs-item"><strong>FSSAI · MSME · Udyam</strong></div>
+    <div class="bs-dot"></div>
+    <div class="bs-item" style="margin-left:auto">
+      <div style="width:5px;height:5px;background:#d4af37;border-radius:50%;animation:pulse 1.5s infinite;margin-right:4px"></div>
+      <strong style="color:rgba(212,175,55,.7)">Coimbatore · Since 2010</strong>
     </div>
-  </section>
-
-  <!-- Stats showcase & milestones -->
-  <section class="py-12 bg-gradient-to-r from-gray-900 to-gray-800 text-white">
-    <div class="container mx-auto px-4 text-center">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div><div class="text-3xl md:text-4xl font-extrabold text-amber-400">15+</div><p class="text-gray-300 text-sm">Years of Experience</p></div>
-        <div><div class="text-3xl md:text-4xl font-extrabold text-cyan-400">1000+</div><p class="text-gray-300 text-sm">Happy Clients</p></div>
-        <div><div class="text-3xl md:text-4xl font-extrabold text-emerald-400">100%</div><p class="text-gray-300 text-sm">Compliance Rate</p></div>
-        <div><div class="text-3xl md:text-4xl font-extrabold text-amber-400">GSTP</div><p class="text-gray-300 text-sm">Certified Practitioner</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer (complete) -->
-  <footer class="bg-gray-900 text-white pt-12 pb-6">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div><h3 class="font-bold text-xl mb-4 flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-cyan-700 flex items-center justify-center"><i class="fas fa-file-invoice text-sm"></i></div> SR Associates</h3><p class="text-gray-400 text-sm">Expert GST & Income Tax consultancy in Coimbatore since 2010. Your trusted compliance partner.</p></div>
-        <div><h4 class="font-bold mb-4">Quick Links</h4><ul class="space-y-2 text-gray-400"><li><a href="#" class="hover:text-cyan-400 transition">Home</a></li><li><a href="#" class="hover:text-cyan-400 transition">About</a></li><li><a href="#" class="hover:text-cyan-400 transition">Services</a></li><li><a href="#" class="hover:text-cyan-400 transition">Contact</a></li></ul></div>
-        <div><h4 class="font-bold mb-4">Our Services</h4><ul class="space-y-2 text-gray-400 text-sm"><li>GST Registration & Filing</li><li>Income Tax Returns (ITR)</li><li>Company Registration</li><li>FSSAI License</li><li>MSME/Udyam Registration</li><li>Tax Audit & Compliance</li></ul></div>
-        <div><h4 class="font-bold mb-4">Contact Us</h4><ul class="space-y-3 text-gray-400 text-sm"><li class="flex items-center gap-3"><i class="fas fa-phone-alt text-cyan-500 w-5"></i><span>+91 94872 21863</span></li><li class="flex items-center gap-3"><i class="fas fa-phone-alt text-cyan-500 w-5"></i><span>+91 90872 63742</span></li><li class="flex items-center gap-3"><i class="fas fa-envelope text-cyan-500 w-5"></i><span>srassociateinfo.ca@gmail.com</span></li><li class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-cyan-500 w-5"></i><span>No.634 Super Complex, 1st Floor, N.H Road, Marakkadai, Coimbatore</span></li></ul></div>
-      </div>
-      <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400 text-sm">© 2026 SR Associates | S. Abdul Rahman, M.Com., GSTP | Coimbatore | All Rights Reserved</div>
-    </div>
-  </footer>
-
-  <!-- Floating call/WhatsApp buttons (sticky) -->
-  <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-    <a href="tel:+919487221863" class="bg-blue-600 text-white p-4 rounded-full shadow-2xl hover:bg-blue-700 transition w-14 h-14 flex items-center justify-center"><i class="fas fa-phone-alt text-xl"></i></a>
-    <a href="tel:+919087263742" class="bg-green-600 text-white p-4 rounded-full shadow-2xl hover:bg-green-700 transition w-14 h-14 flex items-center justify-center"><i class="fas fa-phone-alt text-xl"></i></a>
-    <a href="https://wa.me/919487221863" class="bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition w-14 h-14 flex items-center justify-center animate-pulse"><i class="fab fa-whatsapp text-2xl"></i></a>
   </div>
+</div>
 
-  <script>
-    // mobile menu toggle
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    if(menuBtn) {
-      menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    }
-    // ensure any external links are smooth
-    console.log("SR Associates about page fully loaded — premium GST practitioner profile.");
-  </script>
 </body>
 </html>
