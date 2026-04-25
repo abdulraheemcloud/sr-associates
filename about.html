@@ -15,10 +15,10 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #f0f4f8;
+      background: #0a0f1a;
     }
 
-    /* Keyframes - Fixed all animations */
+    /* Keyframes */
     @keyframes floatY { 
       0%,100%{transform:translateY(0)} 
       50%{transform:translateY(-12px)} 
@@ -36,16 +36,16 @@
       100%{transform:translateY(400%)} 
     }
     @keyframes orbit { 
-      0%{transform:rotate(0deg) translateX(130px) rotate(0deg)} 
-      100%{transform:rotate(360deg) translateX(130px) rotate(-360deg)} 
+      0%{transform:rotate(0deg) translateX(135px) rotate(0deg)} 
+      100%{transform:rotate(360deg) translateX(135px) rotate(-360deg)} 
     }
     @keyframes orbit2 { 
-      0%{transform:rotate(120deg) translateX(110px) rotate(-120deg)} 
-      100%{transform:rotate(480deg) translateX(110px) rotate(-480deg)} 
+      0%{transform:rotate(120deg) translateX(115px) rotate(-120deg)} 
+      100%{transform:rotate(480deg) translateX(115px) rotate(-480deg)} 
     }
     @keyframes orbit3 { 
-      0%{transform:rotate(240deg) translateX(95px) rotate(-240deg)} 
-      100%{transform:rotate(600deg) translateX(95px) rotate(-600deg)} 
+      0%{transform:rotate(240deg) translateX(100px) rotate(-240deg)} 
+      100%{transform:rotate(600deg) translateX(100px) rotate(-600deg)} 
     }
     @keyframes dataflow { 
       0%{stroke-dashoffset:200} 
@@ -63,8 +63,16 @@
       0%{transform:translateY(0) scale(1);opacity:0.8} 
       100%{transform:translateY(-80px) scale(0);opacity:0} 
     }
+    @keyframes breathe {
+      0%,100%{opacity:0.15}
+      50%{opacity:0.35}
+    }
+    @keyframes spinSlow {
+      0%{transform:rotate(0deg)}
+      100%{transform:rotate(360deg)}
+    }
 
-    /* Hero Wrap */
+    /* Hero Wrap - Dark Console Theme */
     .hero-wrap {
       width: 100%;
       max-width: 1400px;
@@ -77,14 +85,15 @@
       min-height: 600px;
       display: flex;
       align-items: stretch;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
     }
 
     /* Background Elements */
     .bg-grid {
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(rgba(20,60,120,.18) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(20,60,120,.18) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(20,60,120,.15) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(20,60,120,.15) 1px, transparent 1px);
       background-size: 40px 40px;
       z-index: 0;
       pointer-events: none;
@@ -98,7 +107,7 @@
       width: 340px;
       height: 340px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(20,100,200,.22) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(20,100,200,.2) 0%, transparent 70%);
       z-index: 0;
       pointer-events: none;
     }
@@ -110,7 +119,7 @@
       width: 280px;
       height: 280px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(180,130,20,.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(212,175,55,.12) 0%, transparent 70%);
       z-index: 0;
       pointer-events: none;
     }
@@ -122,30 +131,30 @@
       width: 320px;
       height: 220px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(10,80,180,.15) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(10,80,180,.12) 0%, transparent 70%);
       z-index: 0;
       pointer-events: none;
     }
 
-    /* Columns */
+    /* Columns - Rebalanced after removing blue box */
     .left-col {
-      flex: 1.1;
+      flex: 1;
       position: relative;
       z-index: 2;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 48px 32px 48px 44px;
+      padding: 48px 32px 48px 48px;
     }
 
     .right-col {
-      flex: 0.9;
+      flex: 1;
       position: relative;
       z-index: 2;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px 36px 40px 20px;
+      padding: 40px 48px 40px 20px;
     }
 
     /* Badge */
@@ -174,9 +183,8 @@
       animation: pulse 2s infinite;
     }
 
-    /* Hero Title */
     .hero-title {
-      font-size: 38px;
+      font-size: 42px;
       font-weight: 800;
       line-height: 1.12;
       color: #f0f4ff;
@@ -193,12 +201,11 @@
       font-size: 14px;
       color: rgba(180,200,240,.65);
       line-height: 1.7;
-      max-width: 340px;
+      max-width: 380px;
       margin: 0 0 28px;
       animation: fadeUp 0.8s 0.2s ease both;
     }
 
-    /* Stats Row */
     .stats-row {
       display: flex;
       gap: 20px;
@@ -210,18 +217,16 @@
       background: rgba(255,255,255,.04);
       border: 1px solid rgba(255,255,255,.08);
       border-radius: 12px;
-      padding: 14px 18px;
+      padding: 12px 16px;
       flex: 1;
       position: relative;
-      overflow: hidden;
+      transition: all 0.3s ease;
     }
 
-    .stat-box::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg,rgba(212,175,55,.05) 0%,transparent 60%);
-      pointer-events: none;
+    .stat-box:hover {
+      background: rgba(212,175,55,.08);
+      border-color: rgba(212,175,55,.3);
+      transform: translateY(-2px);
     }
 
     .stat-num {
@@ -243,7 +248,6 @@
       margin-bottom: 4px;
     }
 
-    /* Credentials List */
     .creds-list {
       display: flex;
       flex-direction: column;
@@ -262,7 +266,12 @@
       padding: 10px 16px;
       font-size: 12.5px;
       color: rgba(200,215,255,.8);
-      animation: slideIn 0.6s ease both;
+      transition: all 0.3s ease;
+    }
+
+    .cred-item:hover {
+      background: rgba(212,175,55,.08);
+      border-left-color: #d4af37;
     }
 
     .cred-icon {
@@ -272,153 +281,174 @@
       flex-shrink: 0;
     }
 
-    /* Figure Wrap */
-    .figure-wrap {
+    /* Premium Animation Area - Replaces Blue Box */
+    .premium-animation-area {
       position: relative;
-      width: 300px;
-      height: 440px;
+      width: 100%;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .figure-container {
+      position: relative;
+      width: 320px;
+      height: 450px;
     }
 
     .figure-glow {
       position: absolute;
-      bottom: 0;
+      bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      width: 220px;
-      height: 60px;
-      background: radial-gradient(ellipse, rgba(20,100,220,.35) 0%, transparent 70%);
+      width: 240px;
+      height: 70px;
+      background: radial-gradient(ellipse, rgba(212,175,55,.25) 0%, rgba(20,100,220,.15) 50%, transparent 80%);
       border-radius: 50%;
-      filter: blur(8px);
+      filter: blur(12px);
       z-index: 0;
+      animation: breathe 3s infinite alternate;
     }
 
-    /* Person SVG */
+    /* Animated Person SVG - Tax Consultant with Files */
     .person-svg {
       position: absolute;
-      bottom: 0;
+      bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 3;
       animation: floatY 6s ease-in-out infinite;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
     }
 
-    /* Orbit Tags */
+    /* Orbiting Icons (GST, Calculator, Chart, Documents) */
     .orbit-anchor {
       position: absolute;
-      top: 38%;
+      top: 42%;
       left: 50%;
       width: 0;
       height: 0;
       z-index: 4;
     }
 
-    .orbit-tag {
+    .orbit-icon {
       position: absolute;
-      top: -14px;
-      left: -14px;
-      background: rgba(10,20,50,.85);
-      border: 1px solid rgba(212,175,55,.4);
-      border-radius: 8px;
-      padding: 7px 12px;
-      white-space: nowrap;
-      font-size: 10.5px;
-      font-weight: 600;
-      color: #d4af37;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 4px 20px rgba(0,0,0,.4);
+      top: -18px;
+      left: -18px;
+      width: 36px;
+      height: 36px;
+      background: rgba(10,20,45,.9);
+      border: 1px solid rgba(212,175,55,.5);
+      border-radius: 50%;
       display: flex;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0,0,0,.4);
+      transition: all 0.3s ease;
     }
 
-    .orbit-tag .ot-dot {
-      width: 5px;
-      height: 5px;
-      background: #d4af37;
-      border-radius: 50%;
-      animation: pulse 1.8s infinite;
+    .orbit-icon i {
+      font-size: 16px;
+      color: #d4af37;
     }
 
-    .tag1 {
-      animation: orbit 9s linear infinite;
-      transform-origin: 0 0;
+    .orbit-icon:hover {
+      transform: scale(1.1);
+      border-color: #d4af37;
+      box-shadow: 0 0 15px rgba(212,175,55,.5);
     }
 
-    .tag2 {
-      animation: orbit2 12s linear infinite;
-      transform-origin: 0 0;
-    }
+    .orbit-icon1 { animation: orbit 10s linear infinite; transform-origin: 0 0; }
+    .orbit-icon2 { animation: orbit2 13s linear infinite; transform-origin: 0 0; }
+    .orbit-icon3 { animation: orbit3 8s linear infinite; transform-origin: 0 0; }
+    .orbit-icon4 { animation: orbit 15s linear infinite reverse; transform-origin: 0 0; }
 
-    .tag3 {
-      animation: orbit3 7s linear infinite;
-      transform-origin: 0 0;
-    }
-
-    /* Glass Cards */
-    .glass-card {
+    /* Floating Elements (CSS icons) */
+    .floating-element {
       position: absolute;
-      top: 18px;
-      right: -24px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      backdrop-filter: blur(16px);
+      z-index: 4;
+      animation: floatY2 4s ease-in-out infinite;
+    }
+
+    .floating-element i {
+      font-size: 22px;
+      opacity: 0.7;
+      filter: drop-shadow(0 0 8px rgba(212,175,55,0.4));
+    }
+
+    .float-1 { top: 10%; left: 5%; animation-delay: 0s; }
+    .float-2 { bottom: 15%; right: 8%; animation-delay: 1s; }
+    .float-3 { top: 25%; right: 12%; animation-delay: 0.5s; }
+    .float-4 { bottom: 30%; left: 10%; animation-delay: 1.5s; }
+
+    /* Performance Cards */
+    .performance-card {
+      position: absolute;
+      top: 15px;
+      right: -20px;
+      background: rgba(5,15,35,.9);
+      border: 1px solid rgba(212,175,55,.35);
+      backdrop-filter: blur(12px);
       border-radius: 16px;
-      padding: 16px 18px;
-      width: 170px;
+      padding: 14px 18px;
+      width: 165px;
       z-index: 5;
       animation: floatY2 7s 1s ease-in-out infinite;
-      box-shadow: 0 8px 40px rgba(0,0,0,.5);
+      box-shadow: 0 8px 32px rgba(0,0,0,.5);
     }
 
-    .gc-title {
-      font-size: 10px;
-      color: rgba(180,200,255,.5);
+    .pc-title {
+      font-size: 9px;
+      color: rgba(212,175,55,.7);
       text-transform: uppercase;
-      letter-spacing: .08em;
+      letter-spacing: .1em;
       margin-bottom: 10px;
     }
 
-    .gc-row {
+    .pc-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 7px;
+      margin-bottom: 8px;
     }
 
-    .gc-label {
-      font-size: 11px;
+    .pc-label {
+      font-size: 10px;
       color: rgba(200,215,255,.7);
     }
 
-    .gc-bar-wrap {
-      width: 70px;
-      height: 4px;
+    .pc-bar-wrap {
+      width: 65px;
+      height: 3px;
       background: rgba(255,255,255,.1);
-      border-radius: 4px;
+      border-radius: 3px;
       overflow: hidden;
     }
 
-    .gc-bar {
+    .pc-bar {
       height: 100%;
-      border-radius: 4px;
+      border-radius: 3px;
     }
 
-    .gc-val {
-      font-size: 10px;
-      font-weight: 600;
+    .pc-val {
+      font-size: 9px;
+      font-weight: 700;
       color: #d4af37;
     }
 
-    .glass-card2 {
+    /* Identity Card */
+    .identity-card {
       position: absolute;
-      bottom: 60px;
-      left: -28px;
-      background: rgba(5,20,60,.85);
-      border: 1px solid rgba(20,100,200,.35);
+      bottom: 50px;
+      left: -25px;
+      background: rgba(5,20,50,.95);
+      border: 1px solid rgba(212,175,55,.4);
       backdrop-filter: blur(12px);
       border-radius: 14px;
-      padding: 14px 16px;
-      width: 148px;
+      padding: 12px 14px;
+      width: 145px;
       z-index: 5;
       animation: floatY2 8s 2s ease-in-out infinite;
       box-shadow: 0 8px 32px rgba(0,0,0,.5);
@@ -431,35 +461,19 @@
       background: rgba(16,185,129,.12);
       border: 1px solid rgba(16,185,129,.3);
       border-radius: 100px;
-      padding: 4px 10px;
+      padding: 3px 8px;
       width: fit-content;
       margin-bottom: 8px;
     }
 
-    .vb-dot {
-      width: 5px;
-      height: 5px;
-      background: #10b981;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-
-    .vb-txt {
-      font-size: 9.5px;
-      font-weight: 700;
-      color: #10b981;
-      letter-spacing: .05em;
-    }
-
-    .gc2-name {
-      font-size: 12px;
+    .identity-name {
+      font-size: 11px;
       font-weight: 700;
       color: #f0f4ff;
-      line-height: 1.3;
     }
 
-    .gc2-role {
-      font-size: 10px;
+    .identity-role {
+      font-size: 9px;
       color: rgba(180,200,255,.5);
       margin-top: 2px;
     }
@@ -481,7 +495,7 @@
       right: 0;
       top: 0;
       height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(20,100,220,.35), rgba(100,180,255,.5), rgba(20,100,220,.35), transparent);
+      background: linear-gradient(90deg, transparent, rgba(212,175,55,.25), rgba(212,175,55,.5), rgba(212,175,55,.25), transparent);
       animation: scanline 4s linear infinite;
     }
 
@@ -503,7 +517,7 @@
       animation: particle 3s ease-out infinite;
     }
 
-    /* Data Lines SVG */
+    /* Data Lines */
     .data-lines {
       position: absolute;
       inset: 0;
@@ -519,8 +533,8 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: rgba(255,255,255,.025);
-      border-top: 1px solid rgba(255,255,255,.06);
+      background: rgba(255,255,255,.02);
+      border-top: 1px solid rgba(255,255,255,.05);
       padding: 10px 44px;
       display: flex;
       align-items: center;
@@ -549,26 +563,24 @@
     }
 
     /* Responsive */
-    @media (max-width: 900px) {
+    @media (max-width: 1000px) {
       .hero-wrap {
         flex-direction: column;
       }
       .left-col {
-        padding: 40px 24px;
+        padding: 40px 32px;
       }
       .right-col {
-        padding: 20px 24px 80px 24px;
+        padding: 20px 32px 80px 32px;
       }
-      .bottom-strip {
-        flex-wrap: wrap;
-        gap: 12px;
-        padding: 8px 20px;
+      .premium-animation-area {
+        height: 450px;
       }
-      .glass-card, .glass-card2 {
+      .performance-card, .identity-card {
         transform: scale(0.9);
       }
       .hero-title {
-        font-size: 28px;
+        font-size: 32px;
       }
     }
 
@@ -577,8 +589,17 @@
         flex-direction: column;
         gap: 10px;
       }
-      .bottom-strip .bs-item:last-child {
-        margin-left: 0 !important;
+      .bottom-strip {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 8px 20px;
+      }
+      .orbit-icon {
+        width: 28px;
+        height: 28px;
+      }
+      .orbit-icon i {
+        font-size: 12px;
       }
     }
   </style>
@@ -594,39 +615,31 @@
 
   <!-- Particles -->
   <div class="particles">
-    <div class="p-dot" style="left:8%;bottom:20%;animation-delay:0s;animation-duration:3.2s"></div>
-    <div class="p-dot" style="left:18%;bottom:35%;animation-delay:.8s;animation-duration:4s"></div>
-    <div class="p-dot" style="left:55%;bottom:15%;animation-delay:1.4s;animation-duration:3.5s"></div>
-    <div class="p-dot" style="left:75%;bottom:40%;animation-delay:.3s;animation-duration:2.8s"></div>
-    <div class="p-dot" style="left:88%;bottom:25%;animation-delay:2s;animation-duration:3.8s;background:#7dd3fc"></div>
-    <div class="p-dot" style="left:32%;bottom:55%;animation-delay:1s;animation-duration:4.2s;background:#7dd3fc"></div>
-    <div class="p-dot" style="left:65%;bottom:60%;animation-delay:2.5s;animation-duration:3s"></div>
-    <div class="p-dot" style="left:45%;bottom:45%;animation-delay:1.2s;animation-duration:3.6s"></div>
-    <div class="p-dot" style="left:12%;bottom:70%;animation-delay:0.5s;animation-duration:4.5s"></div>
+    <div class="p-dot" style="left:8%;bottom:20%;animation-delay:0s"></div>
+    <div class="p-dot" style="left:18%;bottom:35%;animation-delay:.8s"></div>
+    <div class="p-dot" style="left:55%;bottom:15%;animation-delay:1.4s"></div>
+    <div class="p-dot" style="left:75%;bottom:40%;animation-delay:.3s"></div>
+    <div class="p-dot" style="left:88%;bottom:25%;animation-delay:2s;background:#7dd3fc"></div>
+    <div class="p-dot" style="left:32%;bottom:55%;animation-delay:1s;background:#7dd3fc"></div>
+    <div class="p-dot" style="left:65%;bottom:60%;animation-delay:2.5s"></div>
+    <div class="p-dot" style="left:45%;bottom:45%;animation-delay:1.2s"></div>
+    <div class="p-dot" style="left:12%;bottom:70%;animation-delay:0.5s"></div>
   </div>
 
-  <!-- Data lines SVG -->
+  <!-- Data Lines -->
   <svg class="data-lines" viewBox="0 0 800 600" preserveAspectRatio="none">
     <defs>
       <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="rgba(20,100,220,0)"/>
-        <stop offset="50%" stop-color="rgba(20,100,220,0.3)"/>
-        <stop offset="100%" stop-color="rgba(20,100,220,0)"/>
-      </linearGradient>
-      <linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="0%">
         <stop offset="0%" stop-color="rgba(212,175,55,0)"/>
         <stop offset="50%" stop-color="rgba(212,175,55,0.2)"/>
         <stop offset="100%" stop-color="rgba(212,175,55,0)"/>
       </linearGradient>
     </defs>
     <line x1="0" y1="180" x2="800" y2="180" stroke="url(#lg1)" stroke-width="0.5"/>
-    <line x1="0" y1="320" x2="800" y2="320" stroke="url(#lg2)" stroke-width="0.5"/>
+    <line x1="0" y1="320" x2="800" y2="320" stroke="url(#lg1)" stroke-width="0.5"/>
     <line x1="0" y1="460" x2="800" y2="460" stroke="url(#lg1)" stroke-width="0.5"/>
-    <path d="M 80 0 L 80 600" stroke="rgba(20,100,220,0.08)" stroke-width="0.5"/>
-    <path d="M 420 0 L 420 600" stroke="rgba(212,175,55,0.06)" stroke-width="0.5"/>
-    <path d="M 720 0 L 720 600" stroke="rgba(20,100,220,0.06)" stroke-width="0.5"/>
-    <line x1="0" y1="120" x2="500" y2="120" stroke="rgba(20,100,220,0.15)" stroke-width="0.8" stroke-dasharray="8 16" style="stroke-dashoffset:200;animation:dataflow 3s linear infinite"/>
-    <line x1="300" y1="400" x2="800" y2="400" stroke="rgba(212,175,55,0.12)" stroke-width="0.8" stroke-dasharray="6 14" style="stroke-dashoffset:200;animation:dataflow 4s 1s linear infinite"/>
+    <line x1="0" y1="120" x2="500" y2="120" stroke="rgba(212,175,55,0.12)" stroke-width="0.8" stroke-dasharray="8 16" style="stroke-dashoffset:200;animation:dataflow 3s linear infinite"/>
+    <line x1="300" y1="400" x2="800" y2="400" stroke="rgba(212,175,55,0.1)" stroke-width="0.8" stroke-dasharray="6 14" style="stroke-dashoffset:200;animation:dataflow 4s 1s linear infinite"/>
   </svg>
 
   <!-- LEFT COL -->
@@ -661,166 +674,163 @@
     </div>
 
     <div class="creds-list">
-      <div class="cred-item" style="animation-delay:0.5s"><span class="cred-icon">✦</span> Master of Commerce (M.Com)</div>
-      <div class="cred-item" style="animation-delay:0.65s"><span class="cred-icon">✦</span> Certified GST Practitioner (GSTP)</div>
-      <div class="cred-item" style="animation-delay:0.8s"><span class="cred-icon">✦</span> 24-Hour Filing Turnaround</div>
-      <div class="cred-item" style="animation-delay:0.95s"><span class="cred-icon">✦</span> Bank-Grade Data Security</div>
+      <div class="cred-item"><span class="cred-icon">✦</span> Master of Commerce (M.Com)</div>
+      <div class="cred-item"><span class="cred-icon">✦</span> Certified GST Practitioner (GSTP)</div>
+      <div class="cred-item"><span class="cred-icon">✦</span> 24-Hour Filing Turnaround</div>
+      <div class="cred-item"><span class="cred-icon">✦</span> Bank-Grade Data Security</div>
     </div>
   </div>
 
-  <!-- RIGHT COL -->
-  <div class="right-col" style="padding-bottom:60px">
-    <div class="figure-wrap">
+  <!-- RIGHT COL - Premium Animation Area (Replaces Blue Box) -->
+  <div class="right-col">
+    <div class="premium-animation-area">
+      <div class="figure-container">
+        
+        <!-- Floating Background Icons -->
+        <div class="floating-element float-1"><i class="fas fa-calculator" style="color: #7dd3fc;"></i></div>
+        <div class="floating-element float-2"><i class="fas fa-chart-line" style="color: #10b981;"></i></div>
+        <div class="floating-element float-3"><i class="fas fa-file-invoice-dollar" style="color: #d4af37;"></i></div>
+        <div class="floating-element float-4"><i class="fas fa-chart-pie" style="color: #e879f9;"></i></div>
 
-      <!-- Orbit anchor -->
-      <div class="orbit-anchor">
-        <div class="tag1">
-          <div class="orbit-tag"><div class="ot-dot"></div> GST Filing</div>
+        <!-- Orbiting Icons -->
+        <div class="orbit-anchor">
+          <div class="orbit-icon orbit-icon1"><i class="fas fa-file-invoice"></i></div>
+          <div class="orbit-icon orbit-icon2"><i class="fas fa-calculator"></i></div>
+          <div class="orbit-icon orbit-icon3"><i class="fas fa-chart-simple"></i></div>
+          <div class="orbit-icon orbit-icon4"><i class="fas fa-scale-balanced"></i></div>
         </div>
-        <div class="tag2">
-          <div class="orbit-tag"><div class="ot-dot" style="background:#7dd3fc"></div><span style="color:#7dd3fc">ITR Returns</span></div>
-        </div>
-        <div class="tag3">
-          <div class="orbit-tag"><div class="ot-dot" style="background:#10b981"></div><span style="color:#10b981">Tax Audit</span></div>
-        </div>
-      </div>
 
-      <!-- Performance card -->
-      <div class="glass-card">
-        <div class="gc-title">Filing Score</div>
-        <div class="gc-row">
-          <span class="gc-label">Speed</span>
-          <div class="gc-bar-wrap"><div class="gc-bar" style="width:95%;background:linear-gradient(90deg,#d4af37,#f5d76e)"></div></div>
-          <span class="gc-val">95%</span>
-        </div>
-        <div class="gc-row">
-          <span class="gc-label">Accuracy</span>
-          <div class="gc-bar-wrap"><div class="gc-bar" style="width:100%;background:linear-gradient(90deg,#10b981,#6ee7b7)"></div></div>
-          <span class="gc-val">100%</span>
-        </div>
-        <div class="gc-row" style="margin-bottom:0">
-          <span class="gc-label">Trust</span>
-          <div class="gc-bar-wrap"><div class="gc-bar" style="width:98%;background:linear-gradient(90deg,#3b82f6,#93c5fd)"></div></div>
-          <span class="gc-val">98%</span>
-        </div>
-      </div>
-
-      <!-- Identity card -->
-      <div class="glass-card2">
-        <div class="verified-badge"><div class="vb-dot"></div><div class="vb-txt">GSTP Verified</div></div>
-        <div class="gc2-name">S. Abdul Rahman</div>
-        <div class="gc2-role">Principal Consultant</div>
-        <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.07);display:flex;gap:10px">
-          <div style="text-align:center">
-            <div style="font-size:14px;font-weight:800;color:#d4af37">1000+</div>
-            <div style="font-size:9px;color:rgba(180,200,255,.4);text-transform:uppercase">Clients</div>
+        <!-- Performance Card -->
+        <div class="performance-card">
+          <div class="pc-title">GST Performance</div>
+          <div class="pc-row">
+            <span class="pc-label">Speed</span>
+            <div class="pc-bar-wrap"><div class="pc-bar" style="width:95%;background:linear-gradient(90deg,#d4af37,#f5d76e)"></div></div>
+            <span class="pc-val">95%</span>
           </div>
-          <div style="width:1px;background:rgba(255,255,255,.08)"></div>
-          <div style="text-align:center">
-            <div style="font-size:14px;font-weight:800;color:#7dd3fc">2010</div>
-            <div style="font-size:9px;color:rgba(180,200,255,.4);text-transform:uppercase">Est.</div>
+          <div class="pc-row">
+            <span class="pc-label">Accuracy</span>
+            <div class="pc-bar-wrap"><div class="pc-bar" style="width:100%;background:linear-gradient(90deg,#10b981,#6ee7b7)"></div></div>
+            <span class="pc-val">100%</span>
+          </div>
+          <div class="pc-row">
+            <span class="pc-label">Satisfaction</span>
+            <div class="pc-bar-wrap"><div class="pc-bar" style="width:98%;background:linear-gradient(90deg,#3b82f6,#93c5fd)"></div></div>
+            <span class="pc-val">98%</span>
           </div>
         </div>
+
+        <!-- Identity Card -->
+        <div class="identity-card">
+          <div class="verified-badge"><div class="vb-dot" style="width:4px;height:4px;background:#10b981;border-radius:50%;animation:pulse 2s infinite;"></div><span style="font-size:8px;color:#10b981;">GSTP Verified</span></div>
+          <div class="identity-name">S. Abdul Rahman</div>
+          <div class="identity-role">Principal Consultant</div>
+          <div style="margin-top:8px;padding-top:6px;border-top:1px solid rgba(255,255,255,.08);display:flex;gap:8px">
+            <div><span style="font-size:11px;font-weight:800;color:#d4af37">1000+</span><div style="font-size:7px;color:rgba(180,200,255,.4)">Clients</div></div>
+            <div style="width:1px;background:rgba(255,255,255,.1)"></div>
+            <div><span style="font-size:11px;font-weight:800;color:#7dd3fc">2010</span><div style="font-size:7px;color:rgba(180,200,255,.4)">Est.</div></div>
+          </div>
+        </div>
+
+        <!-- Glow -->
+        <div class="figure-glow"></div>
+
+        <!-- Animated Person SVG - Tax Consultant with Files -->
+        <svg class="person-svg" width="240" height="420" viewBox="0 0 240 420" fill="none">
+          <defs>
+            <radialGradient id="skinGrad" cx="50%" cy="30%" r="60%">
+              <stop offset="0%" stop-color="#c8956c"/>
+              <stop offset="100%" stop-color="#a0694a"/>
+            </radialGradient>
+            <radialGradient id="suitGrad" cx="50%" cy="0%" r="100%">
+              <stop offset="0%" stop-color="#1e2a45"/>
+              <stop offset="100%" stop-color="#0d1626"/>
+            </radialGradient>
+            <radialGradient id="hairGrad" cx="50%" cy="0%" r="80%">
+              <stop offset="0%" stop-color="#2c1810"/>
+              <stop offset="100%" stop-color="#140c08"/>
+            </radialGradient>
+          </defs>
+
+          <!-- Shadow -->
+          <ellipse cx="120" cy="415" rx="55" ry="6" fill="rgba(0,0,0,0.4)"/>
+
+          <!-- Legs -->
+          <rect x="90" y="295" width="24" height="115" rx="4" fill="#1a2540"/>
+          <rect x="126" y="295" width="24" height="115" rx="4" fill="#1a2540"/>
+
+          <!-- Shoes -->
+          <ellipse cx="102" cy="412" rx="18" ry="8" fill="#1a1a2e"/>
+          <ellipse cx="138" cy="412" rx="18" ry="8" fill="#1a1a2e"/>
+
+          <!-- Suit -->
+          <path d="M65,230 Q63,190 70,165 L87,158 L120,180 L153,158 L170,165 Q177,190 175,230 L175,295 L65,295 Z" fill="url(#suitGrad)"/>
+
+          <!-- Shirt -->
+          <path d="M97,205 L120,215 L143,205 L143,250 L120,258 L97,250 Z" fill="#e8f0fe"/>
+
+          <!-- Tie -->
+          <path d="M115,206 L120,210 L125,206 L123,258 L120,262 L117,258 Z" fill="#1a3a7c"/>
+          <path d="M115,206 L120,212 L125,206 L122,202 L118,202 Z" fill="#1d4090"/>
+
+          <!-- Pocket Square -->
+          <path d="M68,183 L76,175 L82,182 L78,188 Z" fill="#d4af37" opacity="0.9"/>
+
+          <!-- Left Arm with File -->
+          <path d="M70,165 Q52,175 46,195 Q42,210 44,225" stroke="#1e2a45" stroke-width="20" stroke-linecap="round" fill="none"/>
+          <path d="M44,225 Q46,248 74,258 Q94,265 120,262" stroke="#1e2a45" stroke-width="18" stroke-linecap="round" fill="none"/>
+
+          <!-- Right Arm -->
+          <path d="M170,165 Q187,175 193,192 Q197,210 195,228" stroke="#1e2a45" stroke-width="20" stroke-linecap="round" fill="none"/>
+          <path d="M195,228 Q195,248 187,262 Q180,272 170,280" stroke="#1e2a45" stroke-width="18" stroke-linecap="round" fill="none"/>
+
+          <!-- Hands -->
+          <ellipse cx="120" cy="264" rx="11" ry="7" fill="url(#skinGrad)"/>
+          <ellipse cx="168" cy="282" rx="9" ry="7" fill="url(#skinGrad)"/>
+
+          <!-- File/Folder -->
+          <rect x="66" y="242" width="78" height="52" rx="4" fill="#f5f5f0" transform="rotate(-3 66 242)"/>
+          <text x="84" y="260" font-size="10" font-weight="700" fill="#1a3a7c" font-family="Inter" transform="rotate(-3 84 260)" opacity="0.8">GST Returns</text>
+          <rect x="102" y="241" width="20" height="4" rx="2" fill="#d4af37" transform="rotate(-3 102 241)" opacity="0.9"/>
+
+          <!-- Neck -->
+          <rect x="112" y="140" width="16" height="24" rx="5" fill="url(#skinGrad)"/>
+
+          <!-- Head -->
+          <ellipse cx="120" cy="118" rx="33" ry="38" fill="url(#skinGrad)"/>
+
+          <!-- Hair -->
+          <ellipse cx="120" cy="82" rx="31" ry="17" fill="url(#hairGrad)"/>
+
+          <!-- Eyebrows -->
+          <path d="M102,106 Q108,102 113,104" stroke="#3d1f0f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M127,104 Q132,102 138,106" stroke="#3d1f0f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+          <!-- Eyes -->
+          <ellipse cx="108" cy="114" rx="7" ry="5.5" fill="white"/>
+          <ellipse cx="132" cy="114" rx="7" ry="5.5" fill="white"/>
+          <circle cx="109" cy="114" r="4" fill="#3d2010"/>
+          <circle cx="133" cy="114" r="4" fill="#3d2010"/>
+          <circle cx="109.5" cy="114" r="2" fill="#0a0605"/>
+          <circle cx="133.5" cy="114" r="2" fill="#0a0605"/>
+
+          <!-- Smile -->
+          <path d="M110,142 Q120,148 130,142" stroke="rgba(120,60,30,0.5)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+
+          <!-- Glasses -->
+          <rect x="97" y="109" width="20" height="13" rx="5" stroke="#8a7050" stroke-width="1.2" fill="rgba(200,220,255,0.08)"/>
+          <rect x="123" y="109" width="20" height="13" rx="5" stroke="#8a7050" stroke-width="1.2" fill="rgba(200,220,255,0.08)"/>
+          <line x1="117" y1="115" x2="123" y2="115" stroke="#8a7050" stroke-width="1.2"/>
+
+          <!-- Gold Lapel Pin -->
+          <circle cx="135" cy="178" r="3" fill="#d4af37" opacity="0.9"/>
+        </svg>
+
       </div>
-
-      <!-- Glow base -->
-      <div class="figure-glow"></div>
-
-      <!-- Person SVG -->
-      <svg class="person-svg" width="230" height="400" viewBox="0 0 230 400" fill="none">
-        <defs>
-          <radialGradient id="skinGrad" cx="50%" cy="30%" r="60%">
-            <stop offset="0%" stop-color="#c8956c"/>
-            <stop offset="100%" stop-color="#a0694a"/>
-          </radialGradient>
-          <radialGradient id="suitGrad" cx="50%" cy="0%" r="100%">
-            <stop offset="0%" stop-color="#1e2a45"/>
-            <stop offset="100%" stop-color="#0d1626"/>
-          </radialGradient>
-          <radialGradient id="hairGrad" cx="50%" cy="0%" r="80%">
-            <stop offset="0%" stop-color="#2c1810"/>
-            <stop offset="100%" stop-color="#140c08"/>
-          </radialGradient>
-        </defs>
-
-        <!-- Shadow -->
-        <ellipse cx="115" cy="398" rx="60" ry="6" fill="rgba(0,0,0,0.35)"/>
-
-        <!-- Legs -->
-        <rect x="85" y="280" width="26" height="110" rx="4" fill="#1a2540"/>
-        <rect x="119" y="280" width="26" height="110" rx="4" fill="#1a2540"/>
-
-        <!-- Shoes -->
-        <ellipse cx="98" cy="392" rx="20" ry="9" fill="#1a1a2e"/>
-        <ellipse cx="132" cy="392" rx="20" ry="9" fill="#1a1a2e"/>
-
-        <!-- Suit -->
-        <path d="M60,220 Q58,180 65,155 L82,148 L115,170 L148,148 L165,155 Q172,180 170,220 L170,285 L60,285 Z" fill="url(#suitGrad)"/>
-
-        <!-- Shirt -->
-        <path d="M92,195 L115,205 L138,195 L138,240 L115,248 L92,240 Z" fill="#e8f0fe"/>
-
-        <!-- Tie -->
-        <path d="M110,196 L115,200 L120,196 L118,248 L115,252 L112,248 Z" fill="#1a3a7c"/>
-
-        <!-- Pocket square -->
-        <path d="M64,173 L72,165 L78,172 L74,178 Z" fill="#d4af37" opacity="0.9"/>
-
-        <!-- Left Arm -->
-        <path d="M65,155 Q48,165 42,185 Q38,200 40,215" stroke="#1e2a45" stroke-width="22" stroke-linecap="round" fill="none"/>
-        <path d="M40,215 Q42,238 70,248 Q90,255 115,252" stroke="#1e2a45" stroke-width="20" stroke-linecap="round" fill="none"/>
-
-        <!-- Right Arm -->
-        <path d="M165,155 Q182,165 188,182 Q192,200 190,218" stroke="#1e2a45" stroke-width="22" stroke-linecap="round" fill="none"/>
-        <path d="M190,218 Q190,238 182,252 Q175,262 165,270" stroke="#1e2a45" stroke-width="20" stroke-linecap="round" fill="none"/>
-
-        <!-- Hands -->
-        <ellipse cx="115" cy="254" rx="12" ry="8" fill="url(#skinGrad)"/>
-        <ellipse cx="162" cy="272" rx="10" ry="8" fill="url(#skinGrad)"/>
-
-        <!-- File -->
-        <rect x="62" y="232" width="82" height="56" rx="5" fill="#f5f5f0" transform="rotate(-3 62 232)"/>
-        <text x="80" y="250" font-size="11" font-weight="700" fill="#1a3a7c" font-family="Inter,sans-serif" transform="rotate(-3 80 250)" opacity="0.8">GST Returns</text>
-        <rect x="98" y="231" width="22" height="5" rx="2" fill="#d4af37" transform="rotate(-3 98 231)" opacity="0.9"/>
-
-        <!-- Neck & Head -->
-        <rect x="107" y="130" width="16" height="26" rx="5" fill="url(#skinGrad)"/>
-        <ellipse cx="115" cy="108" rx="35" ry="40" fill="url(#skinGrad)"/>
-
-        <!-- Hair -->
-        <ellipse cx="115" cy="72" rx="33" ry="18" fill="url(#hairGrad)"/>
-        <path d="M80,90 Q76,100 79,110 Q82,78 80,90 Z" fill="url(#hairGrad)"/>
-        <path d="M150,90 Q154,100 151,110 Q148,78 150,90 Z" fill="url(#hairGrad)"/>
-
-        <!-- Eyebrows -->
-        <path d="M97,96 Q103,92 108,94" stroke="#3d1f0f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-        <path d="M122,94 Q127,92 133,96" stroke="#3d1f0f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-
-        <!-- Eyes -->
-        <ellipse cx="103" cy="104" rx="8" ry="6" fill="white"/>
-        <ellipse cx="127" cy="104" rx="8" ry="6" fill="white"/>
-        <circle cx="104" cy="104" r="4.5" fill="#3d2010"/>
-        <circle cx="128" cy="104" r="4.5" fill="#3d2010"/>
-        <circle cx="104.5" cy="104" r="2.5" fill="#0a0605"/>
-        <circle cx="128.5" cy="104" r="2.5" fill="#0a0605"/>
-
-        <!-- Smile -->
-        <path d="M105,132 Q115,138 125,132" stroke="rgba(120,60,30,0.6)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-
-        <!-- Glasses -->
-        <rect x="93" y="99" width="20" height="14" rx="6" stroke="#8a7050" stroke-width="1.5" fill="rgba(200,220,255,0.08)"/>
-        <rect x="117" y="99" width="20" height="14" rx="6" stroke="#8a7050" stroke-width="1.5" fill="rgba(200,220,255,0.08)"/>
-        <line x1="113" y1="106" x2="117" y2="106" stroke="#8a7050" stroke-width="1.5"/>
-        <line x1="93" y1="106" x2="80" y2="106" stroke="#8a7050" stroke-width="1.2"/>
-        <line x1="137" y1="106" x2="150" y2="106" stroke="#8a7050" stroke-width="1.2"/>
-
-        <!-- Gold Pin -->
-        <circle cx="130" cy="168" r="3" fill="#d4af37" opacity="0.9"/>
-      </svg>
     </div>
   </div>
 
-  <!-- Bottom strip -->
+  <!-- Bottom Strip -->
   <div class="bottom-strip">
     <div class="bs-item"><strong>GST Registration</strong></div>
     <div class="bs-dot"></div>
