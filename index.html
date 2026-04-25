@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Animated Blue Box | Pure Animation</title>
+  <title>Pure Blue Box | Hero Animation</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -23,7 +23,7 @@
       overflow: hidden;
     }
 
-    /* ONLY BLUE BOX - No other elements */
+    /* ONLY BLUE BOX - No extra rings, no orbiting icons, no text, no name */
     .blue-box {
       width: 280px;
       height: 280px;
@@ -41,7 +41,7 @@
       transition: all 0.3s ease;
     }
 
-    /* Pulsing animation for the blue box */
+    /* Hero pulsing animation - smooth and dramatic */
     @keyframes boxPulse {
       0% {
         transform: scale(1);
@@ -60,41 +60,7 @@
       }
     }
 
-    /* Rotating ring around the box */
-    .rotating-ring {
-      position: absolute;
-      width: 320px;
-      height: 320px;
-      border-radius: 70px;
-      border: 2px solid rgba(0, 210, 255, 0.4);
-      border-top: 3px solid rgba(255, 215, 0, 0.8);
-      border-right: 2px solid rgba(0, 255, 255, 0.6);
-      animation: spinRing 12s linear infinite;
-      pointer-events: none;
-    }
-
-    @keyframes spinRing {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    /* Inner rotating ring */
-    .inner-ring {
-      position: absolute;
-      width: 240px;
-      height: 240px;
-      border-radius: 50px;
-      border: 1.5px dashed rgba(255, 215, 0, 0.5);
-      animation: spinRingReverse 8s linear infinite;
-      pointer-events: none;
-    }
-
-    @keyframes spinRingReverse {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(-360deg); }
-    }
-
-    /* Center icon inside blue box */
+    /* Center icon inside blue box - clean, animated but no text */
     .blue-box i {
       font-size: 5rem;
       background: linear-gradient(135deg, #FFE6B0, #FFC107, #3ECFEF);
@@ -104,6 +70,7 @@
       filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.7));
       animation: iconFloat 2s infinite ease-in-out;
       z-index: 2;
+      transition: all 0.2s ease;
     }
 
     @keyframes iconFloat {
@@ -112,97 +79,7 @@
       100% { transform: translateY(0px); }
     }
 
-    /* Rotating small icons around the box */
-    .orbiting-icons {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
-
-    .orbit-icon {
-      position: absolute;
-      width: 45px;
-      height: 45px;
-      background: rgba(0, 20, 50, 0.7);
-      backdrop-filter: blur(8px);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      color: #FFE29A;
-      border: 1px solid rgba(0, 210, 255, 0.6);
-      box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
-      animation: orbitPulse 3s infinite alternate;
-    }
-
-    .orbit-icon:nth-child(1) {
-      top: -25px;
-      left: 50%;
-      transform: translateX(-50%);
-      animation-delay: 0s;
-    }
-    .orbit-icon:nth-child(2) {
-      bottom: -25px;
-      left: 50%;
-      transform: translateX(-50%);
-      animation-delay: 0.3s;
-    }
-    .orbit-icon:nth-child(3) {
-      left: -25px;
-      top: 50%;
-      transform: translateY(-50%);
-      animation-delay: 0.6s;
-    }
-    .orbit-icon:nth-child(4) {
-      right: -25px;
-      top: 50%;
-      transform: translateY(-50%);
-      animation-delay: 0.9s;
-    }
-
-    @keyframes orbitPulse {
-      0% {
-        transform: translateX(-50%) scale(1);
-        box-shadow: 0 0 8px rgba(0, 210, 255, 0.4);
-      }
-      100% {
-        transform: translateX(-50%) scale(1.2);
-        box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-      }
-    }
-
-    /* Fix for top/bottom icons transform */
-    .orbit-icon:nth-child(1) {
-      transform: translateX(-50%);
-    }
-    .orbit-icon:nth-child(2) {
-      transform: translateX(-50%);
-    }
-    @keyframes orbitPulseTop {
-      0% { transform: translateX(-50%) scale(1); }
-      100% { transform: translateX(-50%) scale(1.2); }
-    }
-    @keyframes orbitPulseBottom {
-      0% { transform: translateX(-50%) scale(1); }
-      100% { transform: translateX(-50%) scale(1.2); }
-    }
-    @keyframes orbitPulseLeft {
-      0% { transform: translateY(-50%) scale(1); }
-      100% { transform: translateY(-50%) scale(1.2); }
-    }
-    @keyframes orbitPulseRight {
-      0% { transform: translateY(-50%) scale(1); }
-      100% { transform: translateY(-50%) scale(1.2); }
-    }
-
-    .orbit-icon:nth-child(1) { animation: orbitPulseTop 2.5s infinite alternate; }
-    .orbit-icon:nth-child(2) { animation: orbitPulseBottom 2.5s infinite alternate 0.4s; }
-    .orbit-icon:nth-child(3) { animation: orbitPulseLeft 2.5s infinite alternate 0.8s; }
-    .orbit-icon:nth-child(4) { animation: orbitPulseRight 2.5s infinite alternate 1.2s; }
-
-    /* Sparkle particles inside box */
+    /* Sparkle particles inside box - decorative, no text, enhances hero effect */
     .sparkles {
       position: absolute;
       width: 100%;
@@ -247,7 +124,7 @@
       }
     }
 
-    /* Glowing background effect behind box */
+    /* Glowing background effect behind box - subtle hero ambiance */
     .glow-bg {
       position: absolute;
       width: 400px;
@@ -264,7 +141,7 @@
       100% { opacity: 0.7; transform: scale(1.1); }
     }
 
-    /* Responsive */
+    /* Responsive design - keeps only pure blue box experience */
     @media (max-width: 600px) {
       .blue-box {
         width: 220px;
@@ -274,55 +151,45 @@
       .blue-box i {
         font-size: 3.8rem;
       }
-      .rotating-ring {
-        width: 260px;
-        height: 260px;
-        border-radius: 55px;
-      }
-      .inner-ring {
-        width: 180px;
-        height: 180px;
-        border-radius: 40px;
-      }
-      .orbit-icon {
-        width: 38px;
-        height: 38px;
-        font-size: 1.1rem;
-      }
-      .orbit-icon:nth-child(1) { top: -20px; }
-      .orbit-icon:nth-child(2) { bottom: -20px; }
-      .orbit-icon:nth-child(3) { left: -20px; }
-      .orbit-icon:nth-child(4) { right: -20px; }
       .glow-bg {
         width: 300px;
         height: 300px;
       }
+      .sparkles {
+        border-radius: 45px;
+      }
     }
 
-    /* Hover effect */
+    /* Hover effect - interactive but still pure blue box animation */
     .blue-box:hover {
       transform: scale(1.02);
       transition: transform 0.3s ease;
+    }
+
+    /* Additional fix: ensures no hidden text elements or pseudo-elements with content */
+    .blue-box::before,
+    .blue-box::after {
+      content: none !important;
+    }
+    
+    /* Remove any potential text or name from anywhere */
+    body, div, i, span, p, h1, h2, h3, h4, h5, h6, a {
+      user-select: none;
+    }
+    
+    /* Ensure no "name" or label appears anywhere */
+    [data-name], [name], .name, .title, .label {
+      display: none !important;
     }
   </style>
 </head>
 <body>
   <div class="glow-bg"></div>
   
+  <!-- PURE BLUE BOX: Removed rotating rings, removed orbiting icons, removed any extra decorative elements that could be seen as 'not needed'.
+       Only the hero box remains with pulsing animation, inner icon, and sparkles as requested. No name, no text label. -->
   <div class="blue-box">
-    <!-- Rotating rings -->
-    <div class="rotating-ring"></div>
-    <div class="inner-ring"></div>
-    
-    <!-- Orbiting small icons around the box -->
-    <div class="orbiting-icons">
-      <div class="orbit-icon"><i class="fas fa-star"></i></div>
-      <div class="orbit-icon"><i class="fas fa-gem"></i></div>
-      <div class="orbit-icon"><i class="fas fa-circle"></i></div>
-      <div class="orbit-icon"><i class="fas fa-crown"></i></div>
-    </div>
-    
-    <!-- Sparkle particles inside -->
+    <!-- Sparkle particles inside - pure decorative, no text, no name -->
     <div class="sparkles">
       <div class="sparkle"></div>
       <div class="sparkle"></div>
@@ -334,7 +201,7 @@
       <div class="sparkle"></div>
     </div>
     
-    <!-- Center icon (NO TEXT, only icon) -->
+    <!-- Center icon: only visual, no accompanying text or label, no name -->
     <i class="fas fa-cube"></i>
   </div>
 </body>
