@@ -1,12 +1,10 @@
-Here is the HTML document that creates a premium hero section for a Tax & GST consultancy, with the blue box name removed and enhanced animations as you requested.
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Premium Hero | Tax & GST Consultants Coimbatore</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <title>Animated Blue Box | Pure Animation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -17,651 +15,327 @@ Here is the HTML document that creates a premium hero section for a Tax & GST co
 
     body {
       font-family: 'Inter', sans-serif;
-      overflow-x: hidden;
-      background: #0A1128;
-    }
-
-    /* Fullscreen Hero Section - Completely Arranged, Removed Any Blue Box Name */
-    .hero-premium {
-      position: relative;
-      width: 100%;
       min-height: 100vh;
       background: radial-gradient(circle at 30% 20%, #0B132B, #030717);
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      isolation: isolate;
     }
 
-    /* Animated Grid Lines Background */
-    .grid-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        linear-gradient(rgba(255, 215, 0, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 215, 0, 0.04) 1px, transparent 1px);
-      background-size: 55px 55px;
-      pointer-events: none;
-      z-index: 0;
-      animation: slowGridMove 35s linear infinite;
-    }
-
-    @keyframes slowGridMove {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(55px, 55px); }
-    }
-
-    /* Particle Canvas */
-    #particle-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    /* Main Content Center - FULLY ARRANGED */
-    .content-center {
-      position: relative;
-      z-index: 15;
-      text-align: center;
-      max-width: 1300px;
-      width: 92%;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* ORBIT WRAPPER - Central Area for Icons & Symbol */
-    .orbit-zone {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 2.2rem;
-      min-height: 340px;
-      width: 100%;
-    }
-
-    /* Rotating Thin Circular Ring with Glow */
-    .rotating-ring {
-      position: absolute;
-      width: 340px;
-      height: 340px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(255, 215, 0, 0.45);
-      border-top: 2px solid rgba(0, 255, 255, 0.75);
-      border-right: 1.5px solid rgba(255, 215, 0, 0.4);
-      box-shadow: 0 0 28px rgba(0, 255, 255, 0.25);
-      animation: spinRing 22s linear infinite;
-      pointer-events: none;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .rotating-ring::before {
-      content: '';
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      width: 12px;
-      height: 12px;
-      background: #FFD966;
-      border-radius: 50%;
-      filter: blur(2px);
-      box-shadow: 0 0 12px gold;
-    }
-
-    .rotating-ring::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      right: -8px;
-      width: 14px;
-      height: 14px;
-      background: #00ffff;
-      border-radius: 50%;
-      filter: blur(3px);
-      opacity: 0.9;
-      box-shadow: 0 0 18px cyan;
-    }
-
-    @keyframes spinRing {
-      0% { transform: translate(-50%, -50%) rotate(0deg); }
-      100% { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-
-    /* Floating Glowing Icons - Orbiting Effect */
-    .icons-container {
-      position: relative;
-      width: 380px;
-      height: 380px;
-      margin: 0 auto;
-    }
-
-    .orbit-icon {
-      position: absolute;
-      width: 62px;
-      height: 62px;
-      background: rgba(12, 22, 45, 0.75);
-      backdrop-filter: blur(12px);
-      border-radius: 35px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      color: #FFE29A;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.4), 0 0 18px rgba(255, 215, 0, 0.6);
-      border: 1px solid rgba(255, 215, 0, 0.65);
-      animation: floatIcon 3.6s infinite ease-in-out;
-      transition: all 0.25s;
-      z-index: 5;
-    }
-
-    /* Perfect arrangement around the ring */
-    .orbit-icon:nth-child(1) { top: 0%; left: 40%; animation-delay: 0s; }
-    .orbit-icon:nth-child(2) { top: 70%; left: 5%; animation-delay: 0.4s; }
-    .orbit-icon:nth-child(3) { top: 15%; right: 3%; animation-delay: 0.7s; }
-    .orbit-icon:nth-child(4) { bottom: 2%; left: 48%; animation-delay: 1s; }
-    .orbit-icon:nth-child(5) { top: 45%; left: -8%; animation-delay: 0.2s; }
-    .orbit-icon:nth-child(6) { bottom: 22%; right: -4%; animation-delay: 0.9s; }
-
-    @keyframes floatIcon {
-      0% { transform: translateY(0px) scale(1); filter: drop-shadow(0 0 6px rgba(255,200,0,0.4)); }
-      50% { transform: translateY(-14px) scale(1.08); filter: drop-shadow(0 12px 22px rgba(0,210,255,0.45)); }
-      100% { transform: translateY(0px) scale(1); filter: drop-shadow(0 0 6px rgba(255,200,0,0.4)); }
-    }
-
-    /* --- CENTER SYMBOL: The Blue Box where name was removed, now featuring dynamic animation only (glowing, rotating micro icons) --- */
-    /* This is the exact element that was previously used for displaying name/text.
-       Now no name or text appears inside; only pure animation elements and a central icon,
-       fulfilling the request: "idhil side il ulla blue box afhil ulla peyarai neekkividu adhil mattum animation venudum box il mattum" 
-       (Remove the name inside that blue box, only animation should be there, just the box animation) */
-    .center-symbol {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 150px;
-      height: 150px;
-      background: rgba(10, 25, 55, 0.8);
+    /* ONLY BLUE BOX - No other elements */
+    .blue-box {
+      width: 280px;
+      height: 280px;
+      background: rgba(10, 25, 55, 0.85);
       backdrop-filter: blur(16px);
-      border-radius: 50px;
+      border-radius: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
       border: 2px solid rgba(0, 210, 255, 0.9);
-      box-shadow: 0 0 40px rgba(0, 225, 255, 0.45), 0 18px 35px rgba(0,0,0,0.5);
-      animation: centerPulseSymbol 2.8s infinite ease-in-out;
-      z-index: 10;
-      /* No text content, name completely removed */
+      box-shadow: 0 0 50px rgba(0, 225, 255, 0.5), 0 25px 45px rgba(0, 0, 0, 0.4);
+      animation: boxPulse 2.6s infinite ease-in-out;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    /* Central Icon inside the blue box (purely decorative, no text/name) */
-    .center-symbol i {
-      font-size: 4.2rem;
-      background: linear-gradient(135deg, #FFE6B0, #FFC107, #3ECFEF);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      filter: drop-shadow(0 0 16px rgba(255,215,0,0.8));
-      transition: all 0.2s;
+    /* Pulsing animation for the blue box */
+    @keyframes boxPulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 30px rgba(0, 210, 255, 0.4), 0 0 10px rgba(0, 210, 255, 0.6);
+        border-color: rgba(0, 210, 255, 0.8);
+      }
+      50% {
+        transform: scale(1.08);
+        box-shadow: 0 0 70px rgba(0, 225, 255, 0.8), 0 0 30px rgba(0, 210, 255, 0.9);
+        border-color: #FFD966;
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 30px rgba(0, 210, 255, 0.4), 0 0 10px rgba(0, 210, 255, 0.6);
+        border-color: rgba(0, 210, 255, 0.8);
+      }
     }
 
-    /* Rotating sub-icons that orbit inside/around the center box for extra motion WITHOUT text */
-    .rotating-sub-icons {
+    /* Rotating ring around the box */
+    .rotating-ring {
       position: absolute;
-      width: 100%;
-      height: 100%;
-      animation: spinSlow 14s linear infinite;
+      width: 320px;
+      height: 320px;
+      border-radius: 70px;
+      border: 2px solid rgba(0, 210, 255, 0.4);
+      border-top: 3px solid rgba(255, 215, 0, 0.8);
+      border-right: 2px solid rgba(0, 255, 255, 0.6);
+      animation: spinRing 12s linear infinite;
       pointer-events: none;
     }
 
-    .rotating-sub-icons i {
-      position: absolute;
-      font-size: 1.8rem;
-      opacity: 0.85;
-      color: #D9F0FF;
-      filter: drop-shadow(0 0 6px cyan);
-    }
-
-    .rotating-sub-icons i:first-child {
-      top: -28px;
-      left: 20px;
-      transform: rotate(0deg);
-    }
-    .rotating-sub-icons i:last-child {
-      bottom: -26px;
-      right: 22px;
-      transform: rotate(0deg);
-    }
-
-    @keyframes spinSlow {
+    @keyframes spinRing {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
 
-    @keyframes centerPulseSymbol {
-      0% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 30px rgba(0,255,210,0.3), 0 0 8px rgba(0,210,255,0.6); border-color: rgba(0, 210, 255, 0.7);}
-      50% { transform: translate(-50%, -50%) scale(1.06); box-shadow: 0 0 58px rgba(255,215,0,0.5), 0 0 20px rgba(0,255,255,0.8); border-color: #FFD966;}
-      100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 30px rgba(0,255,210,0.3), 0 0 8px rgba(0,210,255,0.6); border-color: rgba(0, 210, 255, 0.7);}
-    }
-
-    /* Additional subtle floating micro particles inside box only (purely animation) */
-    .box-glimmer {
+    /* Inner rotating ring */
+    .inner-ring {
       position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 48px;
-      overflow: hidden;
+      width: 240px;
+      height: 240px;
+      border-radius: 50px;
+      border: 1.5px dashed rgba(255, 215, 0, 0.5);
+      animation: spinRingReverse 8s linear infinite;
       pointer-events: none;
-      z-index: -1;
-    }
-    .box-glimmer span {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: rgba(255, 230, 140, 0.7);
-      border-radius: 50%;
-      filter: blur(1.5px);
-      animation: flickerMove 5s infinite alternate;
-    }
-    .box-glimmer span:nth-child(1) { top: 20%; left: 15%; animation-duration: 3s; }
-    .box-glimmer span:nth-child(2) { top: 70%; left: 80%; animation-duration: 4.2s; animation-delay: 1s; }
-    .box-glimmer span:nth-child(3) { top: 45%; left: 45%; animation-duration: 3.6s; animation-delay: 0.5s; width: 4px; height: 4px;}
-    .box-glimmer span:nth-child(4) { bottom: 25%; right: 20%; animation-duration: 3.8s; animation-delay: 0.2s; }
-    .box-glimmer span:nth-child(5) { top: 80%; left: 35%; animation-duration: 5s; animation-delay: 1.2s; width: 5px; height: 5px;}
-
-    @keyframes flickerMove {
-      0% { opacity: 0.2; transform: translateY(0px) scale(0.8); }
-      100% { opacity: 1; transform: translateY(-8px) scale(1.4); background: #FFE29A; box-shadow: 0 0 8px gold; }
     }
 
-    /* Glass Title Card */
-    .title-card {
-      background: rgba(8, 18, 35, 0.6);
-      backdrop-filter: blur(14px);
-      border-radius: 80px;
-      padding: 1.3rem 3rem;
-      display: inline-block;
-      margin-bottom: 1.6rem;
-      border: 1px solid rgba(255, 215, 0, 0.4);
-      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5), 0 0 20px rgba(0,255,255,0.08);
+    @keyframes spinRingReverse {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(-360deg); }
     }
 
-    .main-headline {
-      font-size: clamp(2.2rem, 7vw, 5rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      background: linear-gradient(125deg, #FFFFFF, #FFECB3, #A9E5FF);
+    /* Center icon inside blue box */
+    .blue-box i {
+      font-size: 5rem;
+      background: linear-gradient(135deg, #FFE6B0, #FFC107, #3ECFEF);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      line-height: 1.2;
+      filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.7));
+      animation: iconFloat 2s infinite ease-in-out;
+      z-index: 2;
     }
 
-    .service-tags {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.8rem 2rem;
-      margin-top: 1rem;
+    @keyframes iconFloat {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
     }
 
-    .service-tags span {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(0, 170, 210, 0.18);
-      padding: 0.4rem 1.2rem;
-      border-radius: 50px;
-      font-weight: 500;
-      font-size: 0.9rem;
-      color: #EFF7FF;
-      backdrop-filter: blur(5px);
-      letter-spacing: 0.2px;
-      border: 0.5px solid rgba(255,215,0,0.3);
-    }
-
-    .service-tags i {
-      color: #FFD966;
-      font-size: 0.85rem;
-    }
-
-    /* Gradient Glow Pulse Behind */
-    .glow-backdrop {
+    /* Rotating small icons around the box */
+    .orbiting-icons {
       position: absolute;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(0, 220, 200, 0.2), rgba(255, 180, 0, 0) 70%);
-      border-radius: 50%;
-      filter: blur(60px);
-      z-index: 0;
-      animation: ambientGlow 5s infinite alternate;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
+    }
+
+    .orbit-icon {
+      position: absolute;
+      width: 45px;
+      height: 45px;
+      background: rgba(0, 20, 50, 0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: #FFE29A;
+      border: 1px solid rgba(0, 210, 255, 0.6);
+      box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+      animation: orbitPulse 3s infinite alternate;
+    }
+
+    .orbit-icon:nth-child(1) {
+      top: -25px;
       left: 50%;
-      top: 48%;
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
+      animation-delay: 0s;
+    }
+    .orbit-icon:nth-child(2) {
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation-delay: 0.3s;
+    }
+    .orbit-icon:nth-child(3) {
+      left: -25px;
+      top: 50%;
+      transform: translateY(-50%);
+      animation-delay: 0.6s;
+    }
+    .orbit-icon:nth-child(4) {
+      right: -25px;
+      top: 50%;
+      transform: translateY(-50%);
+      animation-delay: 0.9s;
+    }
+
+    @keyframes orbitPulse {
+      0% {
+        transform: translateX(-50%) scale(1);
+        box-shadow: 0 0 8px rgba(0, 210, 255, 0.4);
+      }
+      100% {
+        transform: translateX(-50%) scale(1.2);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+      }
+    }
+
+    /* Fix for top/bottom icons transform */
+    .orbit-icon:nth-child(1) {
+      transform: translateX(-50%);
+    }
+    .orbit-icon:nth-child(2) {
+      transform: translateX(-50%);
+    }
+    @keyframes orbitPulseTop {
+      0% { transform: translateX(-50%) scale(1); }
+      100% { transform: translateX(-50%) scale(1.2); }
+    }
+    @keyframes orbitPulseBottom {
+      0% { transform: translateX(-50%) scale(1); }
+      100% { transform: translateX(-50%) scale(1.2); }
+    }
+    @keyframes orbitPulseLeft {
+      0% { transform: translateY(-50%) scale(1); }
+      100% { transform: translateY(-50%) scale(1.2); }
+    }
+    @keyframes orbitPulseRight {
+      0% { transform: translateY(-50%) scale(1); }
+      100% { transform: translateY(-50%) scale(1.2); }
+    }
+
+    .orbit-icon:nth-child(1) { animation: orbitPulseTop 2.5s infinite alternate; }
+    .orbit-icon:nth-child(2) { animation: orbitPulseBottom 2.5s infinite alternate 0.4s; }
+    .orbit-icon:nth-child(3) { animation: orbitPulseLeft 2.5s infinite alternate 0.8s; }
+    .orbit-icon:nth-child(4) { animation: orbitPulseRight 2.5s infinite alternate 1.2s; }
+
+    /* Sparkle particles inside box */
+    .sparkles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      border-radius: 60px;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: radial-gradient(circle, #FFD966, #FFA500);
+      border-radius: 50%;
+      opacity: 0;
+      animation: sparkleFloat 3s infinite ease-in-out;
+    }
+
+    .sparkle:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
+    .sparkle:nth-child(2) { top: 60%; left: 75%; animation-delay: 0.5s; width: 8px; height: 8px; }
+    .sparkle:nth-child(3) { top: 80%; left: 30%; animation-delay: 1s; }
+    .sparkle:nth-child(4) { top: 30%; left: 80%; animation-delay: 1.5s; width: 5px; height: 5px; }
+    .sparkle:nth-child(5) { top: 45%; left: 45%; animation-delay: 2s; width: 7px; height: 7px; }
+    .sparkle:nth-child(6) { top: 70%; left: 20%; animation-delay: 2.5s; }
+    .sparkle:nth-child(7) { top: 15%; left: 55%; animation-delay: 0.8s; width: 4px; height: 4px; }
+    .sparkle:nth-child(8) { top: 85%; left: 65%; animation-delay: 1.8s; }
+
+    @keyframes sparkleFloat {
+      0% {
+        opacity: 0;
+        transform: translateY(0px) scale(0.5);
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(-12px) scale(1.2);
+        box-shadow: 0 0 12px gold;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-24px) scale(0.5);
+      }
+    }
+
+    /* Glowing background effect behind box */
+    .glow-bg {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0, 200, 255, 0.15), transparent 70%);
+      border-radius: 50%;
+      filter: blur(40px);
+      pointer-events: none;
+      animation: ambientGlow 4s infinite alternate;
     }
 
     @keyframes ambientGlow {
-      0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.9); }
-      100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.2); }
+      0% { opacity: 0.3; transform: scale(0.9); }
+      100% { opacity: 0.7; transform: scale(1.1); }
     }
 
-    /* CTA Buttons Premium */
-    .cta-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.6rem;
-      margin-top: 2rem;
-    }
-
-    .btn-consult {
-      background: linear-gradient(105deg, #FFD966 0%, #E6B422 100%);
-      border: none;
-      padding: 1rem 2.6rem;
-      border-radius: 60px;
-      font-weight: 700;
-      font-size: 1rem;
-      color: #0A1128;
-      cursor: pointer;
-      box-shadow: 0 12px 28px -10px rgba(0,0,0,0.45), 0 0 18px rgba(255, 217, 0, 0.5);
-      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-family: inherit;
-    }
-
-    .btn-consult:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 22px 35px -12px black, 0 0 28px #FFD966;
-      background: linear-gradient(105deg, #FFE48A, #F5BC1A);
-    }
-
-    .btn-whatsapp {
-      background: rgba(12, 25, 48, 0.75);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 215, 0, 0.8);
-      padding: 1rem 2.6rem;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 1rem;
-      color: #FFEFC0;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      transition: all 0.3s ease;
-      font-family: inherit;
-    }
-
-    .btn-whatsapp i {
-      font-size: 1.3rem;
-      color: #25D366;
-    }
-
-    .btn-whatsapp:hover {
-      background: rgba(255, 215, 0, 0.18);
-      border-color: #FFE69A;
-      color: white;
-      transform: translateY(-4px);
-      box-shadow: 0 15px 28px -10px rgba(0,0,0,0.5);
-    }
-
-    /* Trust Badge */
-    .trust-footer {
-      margin-top: 2.2rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.8rem;
-      flex-wrap: wrap;
-      font-size: 0.8rem;
-      color: rgba(200, 225, 255, 0.6);
-      letter-spacing: 0.3px;
-      font-weight: 500;
-    }
-
-    .trust-footer i {
-      margin-right: 5px;
-      color: #FFD966;
-    }
-
-    /* Fade Stagger Animations */
-    .fade-item {
-      animation: fadeRise 0.75s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
-      opacity: 0;
-    }
-
-    .fade-1 { animation-delay: 0.1s; }
-    .fade-2 { animation-delay: 0.25s; }
-    .fade-3 { animation-delay: 0.5s; }
-    .fade-4 { animation-delay: 0.8s; }
-
-    @keyframes fadeRise {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Mobile Fine-tuning */
-    @media (max-width: 768px) {
-      .icons-container {
-        width: 280px;
-        height: 280px;
+    /* Responsive */
+    @media (max-width: 600px) {
+      .blue-box {
+        width: 220px;
+        height: 220px;
+        border-radius: 45px;
+      }
+      .blue-box i {
+        font-size: 3.8rem;
       }
       .rotating-ring {
         width: 260px;
         height: 260px;
+        border-radius: 55px;
       }
-      .orbit-icon {
-        width: 48px;
-        height: 48px;
-        font-size: 1.5rem;
-      }
-      .center-symbol {
-        width: 110px;
-        height: 110px;
+      .inner-ring {
+        width: 180px;
+        height: 180px;
         border-radius: 40px;
       }
-      .center-symbol i {
-        font-size: 2.7rem;
+      .orbit-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
       }
-      .rotating-sub-icons i {
-        font-size: 1.2rem;
+      .orbit-icon:nth-child(1) { top: -20px; }
+      .orbit-icon:nth-child(2) { bottom: -20px; }
+      .orbit-icon:nth-child(3) { left: -20px; }
+      .orbit-icon:nth-child(4) { right: -20px; }
+      .glow-bg {
+        width: 300px;
+        height: 300px;
       }
-      .rotating-sub-icons i:first-child { top: -20px; left: 8px; }
-      .rotating-sub-icons i:last-child { bottom: -18px; right: 10px; }
-      .orbit-icon:nth-child(1) { top: -2%; left: 38%; }
-      .orbit-icon:nth-child(2) { top: 75%; left: -1%; }
-      .orbit-icon:nth-child(3) { top: 12%; right: -2%; }
-      .orbit-icon:nth-child(4) { bottom: -2%; left: 50%; }
-      .orbit-icon:nth-child(5) { top: 48%; left: -12%; }
-      .orbit-icon:nth-child(6) { bottom: 20%; right: -8%; }
-      .title-card {
-        padding: 0.8rem 1.6rem;
-      }
-      .btn-consult, .btn-whatsapp {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.85rem;
-      }
-      .service-tags span {
-        padding: 0.2rem 0.8rem;
-        font-size: 0.7rem;
-      }
+    }
+
+    /* Hover effect */
+    .blue-box:hover {
+      transform: scale(1.02);
+      transition: transform 0.3s ease;
     }
   </style>
 </head>
 <body>
-<div class="hero-premium">
-  <div class="grid-bg"></div>
-  <div id="particle-canvas"></div>
-  <div class="glow-backdrop"></div>
-
-  <div class="content-center">
-    <!-- ORBIT + SYMBOL: Name completely removed from blue box, keeping animation only -->
-    <div class="orbit-zone fade-item fade-1">
-      <div class="rotating-ring"></div>
-      <div class="icons-container">
-        <!-- 6 Premium Tax Icons -->
-        <div class="orbit-icon"><i class="fas fa-calculator"></i></div>
-        <div class="orbit-icon"><i class="fas fa-file-invoice"></i></div>
-        <div class="orbit-icon"><i class="fas fa-rupee-sign"></i></div>
-        <div class="orbit-icon"><i class="fas fa-chart-pie"></i></div>
-        <div class="orbit-icon"><i class="fas fa-shield-alt"></i></div>
-        <div class="orbit-icon"><i class="fas fa-chart-line"></i></div>
-      </div>
-      
-      <!-- CENTER BLUE BOX: Name fully removed; only animations, icons, glimmers, rotating sub-icons exist inside.
-           No text, no firm name, no person name. Matches requirement: "blue box afhil ulla peyarai neekkividu adhil mattum animation venudum box il mattum" -->
-      <div class="center-symbol">
-        <!-- No text or name element present -->
-        <i class="fas fa-user-check"></i>
-        <div class="rotating-sub-icons">
-          <i class="fas fa-clipboard-list"></i>
-          <i class="fas fa-stamp"></i>
-        </div>
-        <!-- Additional micro sparkles inside the blue box for pure animation delight -->
-        <div class="box-glimmer">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
+  <div class="glow-bg"></div>
+  
+  <div class="blue-box">
+    <!-- Rotating rings -->
+    <div class="rotating-ring"></div>
+    <div class="inner-ring"></div>
+    
+    <!-- Orbiting small icons around the box -->
+    <div class="orbiting-icons">
+      <div class="orbit-icon"><i class="fas fa-star"></i></div>
+      <div class="orbit-icon"><i class="fas fa-gem"></i></div>
+      <div class="orbit-icon"><i class="fas fa-circle"></i></div>
+      <div class="orbit-icon"><i class="fas fa-crown"></i></div>
     </div>
-
-    <!-- TITLE SECTION :: Professional & Trust - No Firm Name just service description -->
-    <div class="title-card fade-item fade-2">
-      <h1 class="main-headline">TAX CONSULTANTS & AUDITORS</h1>
-      <div class="service-tags">
-        <span><i class="fas fa-file-invoice-dollar"></i> GST Practitioner</span>
-        <span><i class="fas fa-chart-line"></i> Income Tax</span>
-        <span><i class="fas fa-building"></i> Business Registration</span>
-        <span><i class="fas fa-check-circle"></i> Audit & Compliance</span>
-      </div>
+    
+    <!-- Sparkle particles inside -->
+    <div class="sparkles">
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
     </div>
-
-    <!-- CTA Buttons -->
-    <div class="cta-group fade-item fade-3">
-      <button class="btn-consult" id="consultTrigger"><i class="fas fa-calendar-alt"></i> Get Free Consultation</button>
-      <button class="btn-whatsapp" id="whatsappTrigger"><i class="fab fa-whatsapp"></i> WhatsApp Now</button>
-    </div>
-
-    <!-- Trust Elements -->
-    <div class="trust-footer fade-item fade-4">
-      <span><i class="fas fa-map-marker-alt"></i> Coimbatore — Trusted Tax Experts</span>
-      <span><i class="fas fa-trophy"></i> 22+ Years of Excellence</span>
-      <span><i class="fas fa-users"></i> 5000+ Happy Clients</span>
-    </div>
+    
+    <!-- Center icon (NO TEXT, only icon) -->
+    <i class="fas fa-cube"></i>
   </div>
-</div>
-
-<script>
-  (function() {
-    // Particle system: smooth floating dots (elegant background)
-    const canvas = document.getElementById('particle-canvas');
-    if (!canvas) return;
-    let ctx = canvas.getContext('2d');
-    let width, height;
-    let particles = [];
-
-    function initParticles() {
-      const particleCount = 95;
-      particles = [];
-      for (let i = 0; i < particleCount; i++) {
-        particles.push({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          radius: Math.random() * 2.5 + 1,
-          speedX: (Math.random() - 0.5) * 0.18,
-          speedY: (Math.random() - 0.5) * 0.12,
-          opacity: Math.random() * 0.5 + 0.2,
-          color: `rgba(255, 225, 120, ${Math.random() * 0.5 + 0.15})`
-        });
-      }
-    }
-
-    function resizeCanvas() {
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = width;
-      canvas.height = height;
-      if (ctx) {
-        ctx.clearRect(0, 0, width, height);
-        initParticles();
-        drawParticles();
-      }
-    }
-
-    function drawParticles() {
-      if (!ctx) return;
-      ctx.clearRect(0, 0, width, height);
-      for (let p of particles) {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.fill();
-        ctx.shadowBlur = 5;
-        ctx.shadowColor = '#FFD966';
-        ctx.fill();
-        ctx.shadowBlur = 0;
-      }
-    }
-
-    function updateParticles() {
-      for (let p of particles) {
-        p.x += p.speedX;
-        p.y += p.speedY;
-        if (p.x < -15) p.x = width + 15;
-        if (p.x > width + 15) p.x = -15;
-        if (p.y < -15) p.y = height + 15;
-        if (p.y > height + 15) p.y = -15;
-      }
-      drawParticles();
-      requestAnimationFrame(updateParticles);
-    }
-
-    window.addEventListener('resize', () => {
-      resizeCanvas();
-    });
-    resizeCanvas();
-    updateParticles();
-
-    // CTA Interactive
-    const consultBtn = document.getElementById('consultTrigger');
-    const whatsBtn = document.getElementById('whatsappTrigger');
-
-    if (consultBtn) {
-      consultBtn.addEventListener('click', () => {
-        alert("📞 Book a Free Consultation with Coimbatore's leading Tax & GST Experts. Call +91 422 456 7890 or visit our office for expert guidance.");
-      });
-    }
-
-    if (whatsBtn) {
-      whatsBtn.addEventListener('click', () => {
-        const phoneNumber = '919876543210'; // Replace with actual firm's WhatsApp number later
-        const welcomeMsg = encodeURIComponent('Hello, I need expert advice on GST, Income Tax & Auditing in Coimbatore.');
-        window.open(`https://wa.me/${phoneNumber}?text=${welcomeMsg}`, '_blank');
-      });
-    }
-
-    // Additional: Add a subtle continuous micro-animation for the blue box (already done via CSS)
-    // No name text exists in .center-symbol, ensuring requirement satisfaction.
-  })();
-</script>
 </body>
 </html>
-```
